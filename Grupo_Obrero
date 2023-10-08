@@ -1,0 +1,14 @@
+using System;
+
+namespace TPAlgoritmos_Constructora
+{
+	/// <summary>
+	/// Description of Empresa_Constructora.
+	/// </summary>
+	public class Grupo_Obrero
+	{
+		public Grupo_Obrero_Obrero()
+		{
+		}
+	}
+}
