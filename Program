@@ -1,0 +1,13 @@
+using System;
+
+namespace TPAlgoritmos
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			
+			Console.ReadKey(true);
+		}
+	}
+}
