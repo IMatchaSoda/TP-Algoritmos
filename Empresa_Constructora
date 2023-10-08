@@ -1,0 +1,37 @@
+using System;
+using System.Collection;
+
+namespace TPAlgoritmos_Constructora
+{
+	
+	public class Empresa_Constructora
+	{
+		//Atributos
+		private string nombre; 
+		ArrayList listaObras;
+		ArrayList listaGrupos;
+		//Constructor
+		public Empresa_Constructora(string nombre)
+		{
+			this.nombre=nombre;
+			listaObras= new ArrayList();
+			listaGrupos= new ArrayList();
+		}
+		//Metodos
+
+		Public string Nombre{
+			get{return nombre;}
+			set{nombre=value;}
+		}
+		public Arraylist ListaObras{
+			get{return listaObras;}
+
+		}
+		public ArrayList ListaGrupos{
+			get{return listaGrupos;}
+		}
+
+		//Listar,Buscar,Eliminar, ,		.(son 5 por lista)
+
+	}
+}
