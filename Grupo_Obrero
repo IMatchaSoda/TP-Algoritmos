@@ -1,14 +1,23 @@
 using System;
-
+using System.Collection;
 namespace TPAlgoritmos_Constructora
 {
-	/// <summary>
-	/// Description of Empresa_Constructora.
-	/// </summary>
 	public class Grupo_Obrero
 	{
-		public Grupo_Obrero_Obrero()
+		private Arraylist ListaObreros;
+		private int idobra;
+		
+		public Grupo_Obrero_Obrero(int idobra)
 		{
+			this.idobra=idobra;
+			ListaObreros==new Arraylist();	
+
+		}
+		public IDobra{
+			get{return idobra;}set{idobra=value;}
+		}
+		public ArrayList Lista_Obreros{
+			get{return ListaObreros;}
 		}
 	}
 }
