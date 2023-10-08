@@ -7,21 +7,21 @@ namespace TPAlgoritmos_Constructora
 	public class Empresa_Constructora
 	{
 		//Atributos
-		private string nombre; 
+		private string empresanombre; 
 		ArrayList listaObras;
 		ArrayList listaGrupos;
 		//Constructor
-		public Empresa_Constructora(string nombre)
+		public Empresa_Constructora(string empres_nombre)
 		{
-			this.nombre=nombre;
+			this.empresa_nombre=empresa_nombre;
 			listaObras= new ArrayList();
 			listaGrupos= new ArrayList();
 		}
 		//Metodos
 
-		Public string Nombre{
-			get{return nombre;}
-			set{nombre=value;}
+		Public string EmpresaNombre{
+			get{return empresa_nombre;}
+			set{empresa_nombre=value;}
 		}
 		public Arraylist ListaObras{
 			get{return listaObras;}
