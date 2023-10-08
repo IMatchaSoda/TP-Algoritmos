@@ -7,8 +7,13 @@ namespace TPAlgoritmos_Constructora
 	/// </summary>
 	public class Jefe_Obrero:Obrero
 	{
-		public Jefe_Obrero():base()
+		private double bono;
+		Grupo_Obrero grupo;
+		public Jefe_Obrero(double bono,Grupo_Obrero grupo):base(string nom,string apellido,string cargo,double sueldo,int legajo,int dni)
 		{
+			this.bono=bono;
+			this.grupo=grupo;
 		}
+		
 	}
 }
