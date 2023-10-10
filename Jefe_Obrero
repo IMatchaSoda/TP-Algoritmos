@@ -2,14 +2,11 @@ using System;
 
 namespace TPAlgoritmos_Constructora
 {
-	/// <summary>
-	/// Description of Empresa_Constructora.
-	/// </summary>
 	public class Jefe_Obrero:Obrero
 	{
 		private double bono;
 		Grupo_Obrero grupo;
-		public Jefe_Obrero(double bono,Grupo_Obrero grupo):base(string nom,string apellido,string cargo,double sueldo,int legajo,int dni)
+		public Jefe_Obrero(double bono,Grupo_Obrero grupo,string nom,string ape,string carg,double sueld,int legaj,int doc):base(nom,ape,carg,sueld,legaj,doc)
 		{
 			this.bono=bono;
 			this.grupo=grupo;
