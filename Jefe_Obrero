@@ -11,6 +11,13 @@ namespace TPAlgoritmos_Constructora
 			this.bono=bono;
 			this.grupo=grupo;
 		}
+
+		public double Bono{
+			get{return bono;}set{bono=value;}
+		}
+		public Grupo_Obrero Grupo{
+			get{return grupo;}set{grupo=value;}
+		}
 		
 	}
 }
