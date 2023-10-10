@@ -31,7 +31,11 @@ namespace TPAlgoritmos_Constructora
 			get{return listaGrupos;}
 		}
 
-		//Listar,Buscar,Eliminar, ,		.(son 5 por lista)
-
+		//Agregar,Buscar,Eliminar,Listar,		.(son 5 por lista)
+		public void Agregar_Obra(string nombre_p,string tipo_obra,int dni_p,int id,int estado_avance,int tiempo_ejecucion,double costo,Jefe_Obra jefe_Obra){
+			Obra Nueva_Obra= new Obra(nombre_p,tipo_obra,dni_p,id,estado_avance,tiempo_ejecucion,costo,jefe_Obra);
+			listaObras.Add(Nueva_Obra);
+		}
+		
 	}
 }
