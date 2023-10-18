@@ -21,19 +21,19 @@ namespace TPAlgoritmos_Constructora
 			get{return nombre;}set{nombre=value;}
 		}
 		public string Apellido{
-			get{return apellido;} set{apellido value;}
+			get{return apellido;} set{apellido=value;}
 		} 
 		public string Cargo{
-			get{return cargo;}set{cargo value;}
+			get{return cargo;}set{cargo=value;}
 		}
 		public double Sueldo{
-			get{return sueldo;}set{sueldo value;}
+			get{return sueldo;}set{sueldo=value;}
 		}
 		public int Legajo{
-			get{return legajo;}set{legajo value;}
+			get{return legajo;}set{legajo=value;}
 		} 
 		public int Dni{
-			get{return dni}set{dni value;}
+			get{return dni;}set{dni=value;}
 		}
 	}
 }
