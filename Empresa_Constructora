@@ -7,12 +7,12 @@ namespace TPAlgoritmos_Constructora
 	public class Empresa_Constructora
 	{
 		//Atributos
-		private string empresanombre; 
+		private string empresa_nombre; 
 		ArrayList listaObras;
 		ArrayList listaGrupos;
 		
 		//Constructor
-		public Empresa_Constructora(string empres_nombre)
+		public Empresa_Constructora(string empresa_nombre)
 		{
 			this.empresa_nombre=empresa_nombre;
 			listaObras= new ArrayList();
@@ -56,7 +56,7 @@ namespace TPAlgoritmos_Constructora
 		}
 		public void mostrar_Obras(){
 			for(int i=0;i<listaObras.Count;i++){
-				Console.WriteLine(listaObras[i].ToString(););
+				Console.WriteLine(listaObras[i].ToString());
 			}
 		}
 		public void eliminar_Obra(int id){
@@ -69,6 +69,24 @@ namespace TPAlgoritmos_Constructora
 				}	
 			}
 
+		}
+		public void Agregar_Grupo(Grupo_Obrero grupo){
+			listaGrupos.Add(grupo);
+		}
+		public void Mostrar_Grupo(){
+			for(int i=0;i<listaGrupos.Count;i++){
+				Console.WriteLine(listaGrupos[i].ToString());
+			}
+		}
+		public void Eliminar_Grupo(ID){
+			bool existe=false;
+			for(int i=0;i<listaGrupos.Count;i++){
+				if([i].){
+					existe=true;
+					.RemoveAt(i);
+					break;
+				}	
+			}
 		}
 		
 		
