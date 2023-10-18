@@ -4,20 +4,20 @@ namespace TPAlgoritmos_Constructora
 {
 	public class Grupo_Obrero
 	{
-		private Arraylist ListaObreros;
+		private Arraylist listaObreros;
 		private int idobra;
 		
 		public Grupo_Obrero_Obrero(int idobra)
 		{
 			this.idobra=idobra;
-			ListaObreros==new Arraylist();	
+			listaObreros=new Arraylist();	
 
 		}
 		public IDobra{
 			get{return idobra;}set{idobra=value;}
 		}
-		public ArrayList Lista_Obreros{
-			get{return ListaObreros;}
+		public ArrayList ListaObreros{
+			get{return listaObreros;}
 		}
 	}
 }
