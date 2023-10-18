@@ -8,9 +8,10 @@ namespace TPAlgoritmos_Constructora
 		private int idobra;
 		private int id_Grupo;
 		
-		public Grupo_Obrero_Obrero(int idobra)
+		public Grupo_Obrero_Obrero(int idobra,int id_Grupo)
 		{
 			this.idobra=idobra;
+			this.id_Grupo=id_Grupo;
 			listaObreros=new Arraylist();	
 
 		}
