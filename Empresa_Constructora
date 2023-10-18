@@ -10,12 +10,14 @@ namespace TPAlgoritmos_Constructora
 		private string empresanombre; 
 		ArrayList listaObras;
 		ArrayList listaGrupos;
+		ArrayList lista_Obreros;
 		//Constructor
 		public Empresa_Constructora(string empres_nombre)
 		{
 			this.empresa_nombre=empresa_nombre;
 			listaObras= new ArrayList();
 			listaGrupos= new ArrayList();
+			lista_Obreros= new ArrayList();
 		}
 		//Metodos
 
@@ -65,6 +67,7 @@ namespace TPAlgoritmos_Constructora
 			}
 
 		}
+		
 		
 	}
 }
