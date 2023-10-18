@@ -6,6 +6,7 @@ namespace TPAlgoritmos_Constructora
 	{
 		private Arraylist listaObreros;
 		private int idobra;
+		private int id_Grupo;
 		
 		public Grupo_Obrero_Obrero(int idobra)
 		{
@@ -18,6 +19,9 @@ namespace TPAlgoritmos_Constructora
 		}
 		public ArrayList ListaObreros{
 			get{return listaObreros;}
+		}
+		public int ID_Grupo{
+			get{return id_Grupo;}set{id_Grupo=value;}
 		}
 	}
 }
