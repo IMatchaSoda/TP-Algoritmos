@@ -10,7 +10,7 @@ namespace TPAlgoritmos_Constructora
 		private string empresa_nombre; 
 		ArrayList listaObras;
 		ArrayList listaGrupos;
-		
+	 	//Arraylist ListaObras_100%();
 		//Constructor
 		public Empresa_Constructora(string empresa_nombre)
 		{
