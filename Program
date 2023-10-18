@@ -73,17 +73,15 @@ namespace TPAlgoritmos
 					Console.WriteLine("************************************");
 					Console.WriteLine("elija una de las siguientes opciones:");
 					Console.WriteLine("************************************");
+					Console.WriteLine("a)  ");
+					Console.WriteLine("b)  ");
+					Console.WriteLine("c)  ");
+					Console.WriteLine("d)  ");
 					string op2=console.ReadLine();
 					string op2L=op2.ToLower();
 					switch(op2L){
-						Console.WriteLine("a)  ");
-						Console.WriteLine("b)  ");
-						Console.WriteLine("c)  ");
-						Console.WriteLine("d)  ");
+						
 					}
-
-
-					
 						break;
                     case "d":
 					Console.Clear();
