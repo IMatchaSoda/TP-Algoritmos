@@ -1,5 +1,5 @@
 using System;
-using System.Collection;
+using System.Collections;
 namespace TPAlgoritmos_Constructora
 {
 	public class Grupo_Obrero
