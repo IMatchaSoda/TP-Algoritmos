@@ -31,10 +31,39 @@ namespace TPAlgoritmos_Constructora
 			get{return listaGrupos;}
 		}
 
-		//Agregar,Buscar,Eliminar,Listar,		.(son 5 por lista)
+		//Agregar,Buscar,Eliminar,Listar,largo de lista(cantidad).(son 5 por lista)
 		public void Agregar_Obra(string nombre_p,string tipo_obra,int dni_p,int id,int estado_avance,int tiempo_ejecucion,double costo,Jefe_Obra jefe_Obra){
 			Obra Nueva_Obra= new Obra(nombre_p,tipo_obra,dni_p,id,estado_avance,tiempo_ejecucion,costo,jefe_Obra);
 			listaObras.Add(Nueva_Obra);
+		}
+		public void cantidad_Obras(){
+			listaObras.Count();
+		}
+		public void buscar_Obra(int ID){
+			bool encontrado= false;
+			foreach(Obra obra in listaObras){
+				if(obra.ID==ID){
+					encontrado=true;
+					Console.WriteLine("Obra encontrada");
+					break;
+				}
+			}
+		}
+		public void mostrar_Obras(){
+			for(int i=0;i<listaObras.Count;i++){
+				Console.WriteLine(listaObras[i].ToString(););
+			}
+		}
+		public void eliminar_Obra(int id){
+			bool existe=false;
+			for(int i=0;i<listaObras.Count;i++){
+				if(listaObras[i].ID==id){
+					existe=true;
+					listaObras.RemoveAt(i);
+					break;
+				}	
+			}
+
 		}
 		
 	}
