@@ -32,8 +32,12 @@ namespace TPAlgoritmos_Constructora
 		public int Legajo{
 			get{return legajo;}set{legajo=value;}
 		} 
-		public int Dni{
+		public int DNI{
 			get{return dni;}set{dni=value;}
+		}
+		//Metodo polimorfico imprimir,heredable a jefe_obrero
+		public virtual void imprimir(){
+			Console.WriteLine("nombre:{0}-apellido:{1}--cargo:{2}--sueldo:{3}--Legajo:{4}--DNI:{5}",nombre,apellido,cargo,sueldo,legajo,dni);
 		}
 	}
 }
