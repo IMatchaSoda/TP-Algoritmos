@@ -51,7 +51,7 @@ namespace TPAlgoritmos
 				Console.WriteLine("************************************");
 				Console.WriteLine("a) Contratar un obrero nuevo ");
 				Console.WriteLine("b) Eliminar un obrero ");
-				Console.WriteLine("c)  ");//Submenu de impresion
+				Console.WriteLine("c) Submenu Impresion ");//Submenu de impresion
 				Console.WriteLine("d) Agregar Obra. ");
 				Console.WriteLine("e) Modificar estado de avance de una obra. ");
 				Console.WriteLine("f) Dar de baja a un jefe. ");
@@ -73,15 +73,31 @@ namespace TPAlgoritmos
 					Console.WriteLine("************************************");
 					Console.WriteLine("elija una de las siguientes opciones:");
 					Console.WriteLine("************************************");
-					Console.WriteLine("a)  ");
-					Console.WriteLine("b)  ");
-					Console.WriteLine("c)  ");
-					Console.WriteLine("d)  ");
+					Console.WriteLine("a)lista obreros ");
+					Console.WriteLine("b)lista obras 50%+ ");
+					Console.WriteLine("c)lista obras finalizadas");
+					Console.WriteLine("d)jefes");
 					string op2=console.ReadLine();
 					string op2L=op2.ToLower();
 					switch(op2L){
-						
+						case "a":
+						Console.Clear();
+
+						break;
+						case "b":
+						Console.Clear();
+
+						break;
+						case "c":
+						Console.Clear();
+
+						break;
+						case "d":
+
+						Console.Clear();
+						break;
 					}
+
 						break;
                     case "d":
 					Console.Clear();
