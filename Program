@@ -100,14 +100,14 @@ namespace TPAlgoritmos
 					Console.WriteLine("************************************");
 					Console.WriteLine("elija una de las siguientes opciones:");
 					Console.WriteLine("************************************");
-					Console.WriteLine("a)lista obreros");
-					Console.WriteLine("b)lista obras 50%+");
-					Console.WriteLine("c)lista obras finalizadas");
-					Console.WriteLine("d)jefes");
-					string op2=console.ReadLine();
-					string op2L=op2.ToLower();
-					switch(op2L){
-						case "a":
+					Console.WriteLine("1)lista obreros");
+					Console.WriteLine("2)lista obras 50%+");
+					Console.WriteLine("3)lista obras finalizadas");
+					Console.WriteLine("4)jefes");
+					int op2=int.Parse(Console.ReadLine());
+					
+					switch(op2){
+						case 1:
 						Console.Clear();
 						if(e1.ListaGrupos.Count>0){
 						e1.Mostrar_Grupo();
@@ -122,7 +122,7 @@ namespace TPAlgoritmos
 						}
 
 						break;
-						case "b":
+						case 2:
 						Console.Clear();
 						for(int i=0; i<e1.listaObras.Count;i++){
 						if(e1.ListaObras[i].Estado_Avance>= 50){
@@ -130,7 +130,7 @@ namespace TPAlgoritmos
 						}
 						}
 						break;
-						case "c":
+						case 3:
 						Console.Clear();
 						for(int i=0; i<e1.listaObras.Count;i++){
 						if(e1.ListaObras[i].Estado_Avance==100){
@@ -138,7 +138,7 @@ namespace TPAlgoritmos
 						}
 						}
 						break;
-						case "d":
+						case 4:
 						for(int j=0; j<e1.ListaGrupos.Count;j++){
 							foreach(Obrero o in e1.ListaGrupos[j]){
 								if(o.Cargo=="jefe"){
