@@ -1,4 +1,7 @@
-/*Una empresa constructora tiene varias obras en ejecución y 8 grupos de obreros que trabajan en las
+/*
+ * Creado por SharpDevelop.
+ * Usuario: iori_
+ /*Una empresa constructora tiene varias obras en ejecución y 8 grupos de obreros que trabajan en las
 obras. De cada obra se conoce el nombre y dni del propietario, código interno (se lo asigna el
 sistema), tipo de obra (construcción, remodelación, ampliación, etc.), el tiempo estimado de
 ejecución (expresado en días), estado de avance (porcentaje), el jefe de obra y el costo. De cada
