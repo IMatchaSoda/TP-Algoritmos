@@ -1,0 +1,4 @@
+C:\Users\mario\source\repos\IMatchaSoda\TP-Algoritmos\TP-algortmos\trabajo algoritmos\obj\Debug\net6.0\trabajo algoritmos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mario\source\repos\IMatchaSoda\TP-Algoritmos\TP-algortmos\trabajo algoritmos\obj\Debug\net6.0\trabajo algoritmos.AssemblyInfoInputs.cache
+C:\Users\mario\source\repos\IMatchaSoda\TP-Algoritmos\TP-algortmos\trabajo algoritmos\obj\Debug\net6.0\trabajo algoritmos.AssemblyInfo.cs
+C:\Users\mario\source\repos\IMatchaSoda\TP-Algoritmos\TP-algortmos\trabajo algoritmos\obj\Debug\net6.0\trabajo algoritmos.csproj.CoreCompileInputs.cache
