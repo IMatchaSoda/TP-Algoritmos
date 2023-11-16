@@ -5,11 +5,11 @@ namespace TPAlgoritmos_Constructora
 {
 	public class Obra
 	{
-	string nombre_propietario,tipo_obra;
-	int dni_propietario,id,estado_avance,tiempoestimado_ejecucion;
-	double costo;
-	Jefe_Obrero jefe_Obra;
-		public Obra(string nombre_p,string tipo_obra,int dni_p,int id,int estado_avance,int tiempo_ejecucion,double costo,Jefe_Obra jefe_Obra)
+	private string nombre_propietario,tipo_obra;
+	private int dni_propietario,id,estado_avance,tiempoestimado_ejecucion;
+	private double costo;
+	private Jefe_Obrero jefe_Obra;
+		public Obra(string nombre_p,string tipo_obra,int dni_p,int id,int estado_avance,int tiempo_ejecucion,double costo,Jefe_Obrero jefe_Obra)
 		{
 			nombre_p=nombre_propietario;
 			this.tipo_obra=tipo_obra;
@@ -48,12 +48,13 @@ namespace TPAlgoritmos_Constructora
         {
             if (avance >= 0 && avance <= 100)
             {
+				//if(avance>A_actual && A_actual<100)
                 Estado_Avance = avance;
 
                 if (Estado_Avance == 100)
                 {
-                    Console.WriteLine("¡La obra ha finalizado!");
-                    // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
+                    Console.WriteLine("ï¿½La obra ha finalizado!");
+                    // Mueve la obra de la lista de obras en ejecuciï¿½n a la lista de obras finalizadas
                     Empresa_Constructora.MoverObraAListaFinalizada(this);
                 }
                 else
