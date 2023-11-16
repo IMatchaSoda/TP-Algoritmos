@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using TPAlgoritmos_Constructora;
+
 
 
 namespace TPAlgoritmos_Constructora
@@ -12,7 +12,7 @@ namespace TPAlgoritmos_Constructora
 		private string empresa_nombre; 
 		private ArrayList listaObras;
 		private ArrayList listaGrupos;
-	 	private ArrayList ListaObrasFinalizadas();
+	 	private ArrayList ListaObrasFinalizadas;
 		//Constructor
 		public Empresa_Constructora(string empresa_nombre)
 		{
@@ -50,10 +50,8 @@ namespace TPAlgoritmos_Constructora
 			Console.WriteLine("cantidad de obras: {0}",listaObras.Count);
 		}
 		public void buscar_Obra(int ID){
-			bool encontrado= false;
 			foreach(Obra obra in listaObras){
 				if(obra.ID==ID){
-					encontrado=true;
 					Console.WriteLine("Obra encontrada");
 					break;
 				}
@@ -66,8 +64,8 @@ namespace TPAlgoritmos_Constructora
 		}
 		public void eliminar_Obra(int id){
 			
-			for(int i=0;i<listaObras.Count;i++){
-				if(listaObras[i].ID==id)
+			for(int i=0;i<ListaObras.Count;i++){
+				if(((Obra)listaObras[i]).ID==id)
 				{
 					listaObras.RemoveAt(i);
 					break;
@@ -88,33 +86,42 @@ namespace TPAlgoritmos_Constructora
 			
 			for(int i=0;i<listaGrupos.Count;i++)
 			{
-                if (((Grupo_Obrero)listaGrupos[i]).ID_Grupo == ID_Grupo)
+				if (((Grupo_Obrero)listaGrupos[i]).ID_Grupo == ID_Grupo)
 
                     listaGrupos.RemoveAt(i);
 					break;
 				}	
 			}
-		}
+		
 		public void Buscar_Grupo(int ID_Grupo){
-			bool encontrado= false;
 			foreach(Grupo_Obrero grupo in listaGrupos)
         {
 				if(grupo.ID_Grupo==ID_Grupo){
-					encontrado=true;
-					Console.WriteLine("Grupo encontrada");
+					Console.WriteLine("Grupo encontrado");
 					break;
 				}
 			}
 		}
-    public static void MoverObraAListaFinalizada(Obra obra)
+    public  void ModificarEstado_obras(int id,int progreso){
+			if(listaObras!=null){
+						for(int i=0;i<listaObras.Count;i++){
+					if(((Obra)listaObras[i]).ID==id){
+						((Obra)listaObras[i]).Estado_Avance=progreso;
+        				Console.WriteLine("progreso modificado");
+        				return;
+        			}
+        		}
+        	}
+        }
+	public  void MoverObraAListaFinalizada(Obra obra)
     {
         // mueve a lista de obras finalizadas
         ListaObrasFinalizadas.Add(obra);
 
-        // Elimina la obra de la lista de obras en ejecución
+        // Elimina la obra de la lista de obras en ejecuciï¿½n
         ListaObras.Remove(obra);
     }
 
+	}
+}
 
-}
-}
