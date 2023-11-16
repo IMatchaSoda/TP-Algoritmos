@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/E10rWJUhCEuAanUQHBe6Gj5ovszlpWy1IRLCu4jFynuokyX7kaygEfPqINO6WxUYY7yZ5JHnRUlW663KLXeKQ==",
+  "dgSpecHash": "sZi1bWaooZyvXYrYKUh0z8/Y9EuzW17ABmT/9/7auMzzAtYmE40+1nYtHzRzPYv72Zbi7ykTX5D6MT1BR7R0Nw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mario\\OneDrive\\Documentos\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\trabajo algoritmos.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\iori_\\Documents\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\trabajo algoritmos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\iori_\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\iori_\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\iori_\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\iori_\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
+  ],
   "logs": []
 }
