@@ -11,7 +11,7 @@ namespace TPAlgoritmos_Constructora
 		private int idobra;
 		private int id_Grupo;
 		
-		public Grupo_Obrero_Obrero(int idobra,int id_Grupo)
+		public Grupo_Obrero(int idobra,int id_Grupo)
 		{
 			this.idobra=idobra;
 			this.id_Grupo=id_Grupo;
@@ -32,19 +32,19 @@ namespace TPAlgoritmos_Constructora
 		}
 		//crea una instancia de obrero, y la añade a la lista
 		public void Agregar_Obrero(string nombre,string apellido,string cargo,double sueldo,int legajo,int dni){
-			Obra Nuevo_obrero= new Obrero(nombre,apellido,cargo,sueldo,legajo,dni);
-			listaObras.Add(Nuevo_obrero);
+			Obrero Nuevo_obrero= new Obrero(nombre,apellido,cargo,sueldo,legajo,dni);
+			listaObreros.Add(Nuevo_obrero);
 		}
 		//muestra la cantidad de elementos en lista
 		public void cantidad_Obreros(){
-			listaObreros.Count();
+			Console.WriteLine(listaObreros.Count);
 		}
 		//itera sobre lista,buscando en base a DNI, si existe=true,lo encontró
 		public void buscar_Obrero(int dni){ 
-			bool encontrado= false;
+			
 			foreach(Obrero obrero in listaObreros){
 				if(obrero.DNI==dni){
-					encontrado=true;
+					
 					Console.WriteLine("Obrero encontrado");
 					break;
 				}
@@ -53,14 +53,14 @@ namespace TPAlgoritmos_Constructora
 		//itera sobre la lista de obreros,y llama al metodo imprimir
 		public void mostrar_Obreros(){
 			for(int i=0;i<listaObreros.Count;i++){
-				listaObreros[i].imprimir();
+				((Obrero)listaObreros[i]).imprimir();
 			}
 		}
 		//itera sobre lista,buscando en base a DNI, si existe=true, elimina en indice
 		public void eliminar_Obrero(int dni){ 
 			bool existe=false;
-			for(int i=0;i<listaObras.Count;i++){
-				if((Obrero)listaObreros[i].DNI==dni){
+			for(int i=0;i<listaObreros.Count;i++){
+				if(((Obrero)listaObreros[i]).DNI==dni){
 					existe=true;
 					listaObreros.RemoveAt(i);
 					break;
