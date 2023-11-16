@@ -1,10 +1,13 @@
 using System;
+using TPAlgoritmos_Constructora;
+
+
 using System.Collections;
 namespace TPAlgoritmos_Constructora
 {
 	public class Grupo_Obrero
 	{
-		private Arraylist listaObreros;
+		private ArrayList listaObreros;
 		private int idobra;
 		private int id_Grupo;
 		
@@ -12,10 +15,10 @@ namespace TPAlgoritmos_Constructora
 		{
 			this.idobra=idobra;
 			this.id_Grupo=id_Grupo;
-			listaObreros=new Arraylist();	
+			listaObreros=new ArrayList();	
 
 		}
-		public IDobra{
+		public int IDobra{
 			get{return idobra;}set{idobra=value;}
 		}
 		public ArrayList ListaObreros{
@@ -57,7 +60,7 @@ namespace TPAlgoritmos_Constructora
 		public void eliminar_Obrero(int dni){ 
 			bool existe=false;
 			for(int i=0;i<listaObras.Count;i++){
-				if(listaObreros[i].DNI==dni){
+				if((Obrero)listaObreros[i].DNI==dni){
 					existe=true;
 					listaObreros.RemoveAt(i);
 					break;
