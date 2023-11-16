@@ -1,4 +1,5 @@
 using System;
+using TPAlgoritmos_Constructora;
 
 namespace TPAlgoritmos_Constructora
 {
@@ -19,7 +20,7 @@ namespace TPAlgoritmos_Constructora
 			this.costo=costo;
 			this.jefe_Obra=jefe_Obra;
 		}
-		public string nombre_propietario{
+		public string Nombre_propietario{
 			get{return nombre_propietario;}set{nombre_propietario=value;}
 		}
 		public string Tipo_Obra{
@@ -43,8 +44,30 @@ namespace TPAlgoritmos_Constructora
 		public Jefe_Obrero Jefede_Obra{
 			get{return jefe_Obra;}set{jefe_Obra=value;}
 		}
-		
+        public void ModificarEstadoAvance(int avance)
+        {
+            if (avance >= 0 && avance <= 100)
+            {
+                Estado_Avance = avance;
+
+                if (Estado_Avance == 100)
+                {
+                    Console.WriteLine("¡La obra ha finalizado!");
+                    // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
+                    Empresa_Constructora.MoverObraAListaFinalizada(this);
+                }
+                else
+                {
+                    Console.WriteLine("Estado de avance modificado correctamente.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: El estado de avance debe estar entre 0 y 100.");
+            }
+        }
 
 
-	}
+
+    }
 }
