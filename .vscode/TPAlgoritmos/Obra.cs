@@ -60,31 +60,5 @@ namespace TPAlgoritmos_Constructora
             get { return jefe_Obra; }
             set { jefe_Obra = value; }
         }
-        public void ModificarEstadoAvance(int avance)
-        {
-            if (avance >= 0 && avance <= 100)
-            {
-                //if(avance>A_actual && A_actual<100)
-                Estado_Avance = avance;
-
-                if (Estado_Avance == 100)
-                {
-                    Console.WriteLine("�La obra ha finalizado!");
-                    // Mueve la obra de la lista de obras en ejecuci�n a la lista de obras finalizadas
-                    //Empresa_Constructora.MoverObraAListaFinalizada(this);
-                }
-                else
-                {
-                    Console.WriteLine("Estado de avance modificado correctamente.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error: El estado de avance debe estar entre 0 y 100.");
-            }
-        }
-
-
-
     }
 }
