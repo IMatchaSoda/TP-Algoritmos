@@ -13,13 +13,15 @@ namespace TPAlgoritmos_Constructora
         private ArrayList listaObras;
         private ArrayList listaGrupos;
         private ArrayList ListaObrasFinalizadas;
+		private ArrayList lista_jefes;
         //Constructor
         public Empresa_Constructora(string empresa_nombre)
         {
             this.empresa_nombre = empresa_nombre;
             listaObras = new ArrayList();
             listaGrupos = new ArrayList();
-            ListaObrasFinalizadas = new ArrayList();
+			ListaObrasFinalizadas= new ArrayList();
+			lista_jefes= new ArrayList();
             for (int i = 1; i <= 8; i++) //crea los 8 grupos
             {
                 listaGrupos.Add(new Grupo_Obrero(0, i));
@@ -40,6 +42,13 @@ namespace TPAlgoritmos_Constructora
         {
             get { return listaGrupos; }
         }
+		public ArrayList ListaJefes
+        {
+            get { return lista_jefes; }
+        }
+		public ArrayList ListaObras_Finalizadas{
+			get{return ListaObrasFinalizadas;}
+		}
 
         //Agregar,Buscar,Eliminar,Listar,largo de lista(cantidad).(son 5 por lista)
         public void Agregar_Obra(string nombre_p, string tipo_obra, int dni_p, int id, int estado_avance, int tiempo_ejecucion, double costo, Jefe_Obrero jefe_Obra)
@@ -139,6 +148,53 @@ namespace TPAlgoritmos_Constructora
 
             // Elimina la obra de la lista de obras en ejecuci�n
             ListaObras.Remove(obra);
+        }
+		public void mostrar_ObrasF()
+        {
+            for (int i = 0; i < ListaObras_Finalizadas.Count; i++)
+            {
+                Console.WriteLine(ListaObras_Finalizadas[i].ToString());
+            }
+        }
+		public void Agregar_jefe(Jefe_Obrero Nuevo_jefe)
+        { 
+            lista_jefes.Add(Nuevo_jefe);
+        }
+        public void cantidad_Jefes()
+        {
+
+            Console.WriteLine("cantidad de jefes: {0}", listaObras.Count);
+        }
+        public void buscar_Jefe(int nroLegajo)
+        {
+            foreach (Jefe_Obrero jefe in lista_jefes)
+            {
+                if (jefe.Legajo == nroLegajo)
+                {
+                    Console.WriteLine("Jefe encontrado");
+                    break;
+                }
+            }
+        }
+        public void mostrar_Jefes()
+        {
+            for (int i = 0; i < lista_jefes.Count; i++)
+            {
+                Console.WriteLine(lista_jefes[i].ToString());
+            }
+        }
+        public void eliminar_Jefe(int nroLegajo)
+        {
+
+            for (int i = 0; i < ListaObras.Count; i++)
+            {
+                if (((Jefe_Obrero)lista_jefes[i]).Legajo == nroLegajo)
+                {
+                    lista_jefes.RemoveAt(i);
+                    break;
+                }
+            }
+
         }
 
     }
