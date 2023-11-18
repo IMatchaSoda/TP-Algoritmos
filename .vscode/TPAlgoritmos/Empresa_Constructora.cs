@@ -126,42 +126,42 @@ namespace TPAlgoritmos_Constructora
                 }
             }
         }
-public void ModificarEstadoAvance(int idObra, int avance,Empresa_Constructora empresa)
-{
-    Obra obraAModificar = null;
+		public void ModificarEstadoAvance(int idObra, int avance)
+		{
+    		Obra obraAModificar = null;
 
     // Busca la obra en la lista basándote en el ID
-    foreach (Obra obra in ListaObras)
-    {
-        if (obra.ID == idObra)
-        {
-            obraAModificar = obra;
-            break;
-        }
-    }
+    		foreach (Obra obra in ListaObras)
+    		{
+        		if (obra.ID == idObra)
+        		{
+            	obraAModificar = obra;
+            	break;
+        		}
+    		}
     // Verifica si se encontró la obra
-    if (obraAModificar != null)
-    {
+    		if (obraAModificar != null)
+    		{
         // Modifica el estado de avance de la obra encontrada
-        if (avance >= 0 && avance <= 100)
-        {
-            obraAModificar.Estado_Avance = avance;
+        		if (avance >= 0 && avance <= 100)
+        		{
+            		obraAModificar.Estado_Avance = avance;
 
-            if (avance == 100)
-            {
-                Console.WriteLine("¡La obra ha finalizado!");
-                // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
-               	// mueve a lista de obras finalizadas
-    			ListaObrasFinalizadas.Add(obraAModificar);
+            		if (avance == 100)
+            		{
+                		Console.WriteLine("¡La obra ha finalizado!");
+               		 // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
+               		// mueve a lista de obras finalizadas
+    				ListaObrasFinalizadas.Add(obraAModificar);
 
-   	 			// Elimina la obra de la lista de obras en ejecución
-    			listaObras.Remove(obraAModificar);
-            }
-            else
-            {
-                Console.WriteLine("Estado de avance modificado correctamente: {obraAModificar.Estado_Avance}%.");
-            }
-        }
+   	 				// Elimina la obra de la lista de obras en ejecución
+    				listaObras.Remove(obraAModificar);
+            		}
+            		else
+            		{
+               		 Console.WriteLine("Estado de avance modificado correctamente: {obraAModificar.Estado_Avance}%.");
+            		}
+        		}
         else
         {
             Console.WriteLine("Error: El estado de avance debe estar entre 0 y 100.");
@@ -169,17 +169,9 @@ public void ModificarEstadoAvance(int idObra, int avance,Empresa_Constructora em
     }
     else
     {
-        Console.WriteLine("Error: No se encontró una obra con el ID especificado.");
+        throw new nohayobradisponible("no se encontro la obra");
     }
 }
-        public void MoverObraAListaFinalizada(Obra obra)
-        {
-            // mueve a lista de obras finalizadas
-            ListaObrasFinalizadas.Add(obra);
-
-            // Elimina la obra de la lista de obras en ejecuci�n
-            ListaObras.Remove(obra);
-        }
 		public void mostrar_ObrasF()
         {
             for (int i = 0; i < ListaObras_Finalizadas.Count; i++)
