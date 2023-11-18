@@ -164,7 +164,7 @@ namespace TPAlgoritmos_Constructora
         		}
         else
         {
-            Console.WriteLine("Error: El estado de avance debe estar entre 0 y 100.");
+            throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
         }
     }
     else
