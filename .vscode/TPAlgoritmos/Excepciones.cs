@@ -12,4 +12,10 @@ namespace TPAlgoritmos_Constructora
             this.message=message;
         }
     }
+    public class EstadoNegativoException:Exception{
+        private string mensaje;
+        public EstadoNegativoException(string m):base(){
+            mensaje=m;
+        }
+    }
 }
