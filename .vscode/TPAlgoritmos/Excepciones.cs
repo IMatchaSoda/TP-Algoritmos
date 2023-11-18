@@ -9,9 +9,7 @@ namespace TPAlgoritmos_Constructora
     {
         private string message;
         public nohayobradisponible(string message):base(){
-            
+            this.message=message;
         }
-
-
     }
 }
