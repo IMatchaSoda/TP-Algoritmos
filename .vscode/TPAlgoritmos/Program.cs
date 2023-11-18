@@ -141,25 +141,13 @@ namespace TPAlgoritmos_Constructora
                                 //Obras Finalizadas
                                 case 3:
                                     Console.Clear();
-                                    for (int i = 0; i < e1.ListaObras.Count; i++)
-                                    {
-                                        if (((Obra)e1.ListaObras[i]).Estado_Avance == 100)
-                                        {
-                                            Console.WriteLine(e1.ListaObras[i]);
-                                        }
-                                    }
+                                    e1.mostrar_ObrasF();   
                                     break;
                                 //Lista de jefes
                                 case 4:
-                                    for (int j = 0; j < e1.ListaGrupos.Count; j++)
+                                    for (int j = 0; j < e1.ListaJefes.Count; j++)
                                     {
-                                        foreach (Obrero o in ((Grupo_Obrero)e1.ListaGrupos[j]).ListaObreros)
-                                        {
-                                            if (o.Cargo == "jefe")
-                                            {
-                                                o.imprimir();
-                                            }
-                                        }
+                                        ((Jefe_Obrero)e1.ListaJefes[j]).imprimir();
                                     }
                                     Console.Clear();
                                     break;
@@ -202,7 +190,9 @@ namespace TPAlgoritmos_Constructora
                                     disponible = true;
                                     g.IDobra = idob;
                                     Jefe_Obrero j1 = new Jefe_Obrero(bono, g, nombre, apellido, cargo, sueldo, nroLegajo, dni);
-                                    Obra o1 = new Obra(nombreP, obratipo, dnip, idob, 0, tiempo_ejecucion, costo, j1);
+									e1.Agregar_jefe(j1);
+                                    e1.Agregar_Obra(nombreP, obratipo, dnip, idob, 0, tiempo_ejecucion, costo, j1);
+									
                                     break;
                                 }
                                 if (!disponible)
@@ -230,7 +220,7 @@ namespace TPAlgoritmos_Constructora
                             break;
                         case "g":
                             Console.Clear();
-
+							Console.WriteLine("hasta la proxima.");
                             salir = true;
                             Thread.Sleep(2000);
 
