@@ -239,10 +239,11 @@ namespace TPAlgoritmos_Constructora
                     }
                 }
             }
-            catch ()
+            catch (NullReferenceException)
             {
 
             }
+			
         }
 
     }
