@@ -214,7 +214,7 @@ namespace TPAlgoritmos_Constructora
                             Console.Clear();
 
                             Console.WriteLine("Ingrese el Código de Obra:");
-                            int codigoObra = int.Parse(Console.ReadLine())
+                            int codigoObra = int.Parse(Console.ReadLine());
                             Console.WriteLine("Ingrese el Nuevo Avance:");
                             int nuevoAvance = int.Parse(Console.ReadLine());
                             // Llama a la función para modificar el estado de avance de la obra
