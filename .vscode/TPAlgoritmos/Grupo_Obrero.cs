@@ -72,12 +72,10 @@ namespace TPAlgoritmos_Constructora
         //itera sobre lista,buscando en base a DNI, si existe=true, elimina en indice
         public void eliminar_Obrero(int dni)
         {
-            bool existe = false;
             for (int i = 0; i < listaObreros.Count; i++)
             {
                 if (((Obrero)listaObreros[i]).DNI == dni)
                 {
-                    existe = true;
                     listaObreros.RemoveAt(i);
                     break;
                 }
