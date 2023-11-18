@@ -245,8 +245,11 @@ namespace TPAlgoritmos_Constructora
 			{
 
 			}
-		}
+			catch(EstadoNegativoException)
+			{
 
+			}
+		}
 	}
 }
 
