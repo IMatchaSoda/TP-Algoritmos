@@ -92,9 +92,14 @@ namespace TPAlgoritmos_Constructora
                             break;
                         case "b":
                             Console.Clear();
-
+							e1.Mostrar_Grupo();
+							Console.WriteLine("ingrese numero de grupo a consultar.");
+							id=int.Parse(Console.ReadLine());
+							((Grupo_Obrero)e1.ListaGrupos[id]).mostrar_Obreros();
+							Console.WriteLine("ingrese documento del obrero a eliminar.");
+							dni=int.Parse(Console.ReadLine());
+							((Grupo_Obrero)e1.ListaGrupos[id]).eliminar_Obrero(dni);
                             break;
-
                         case "c":
                             Console.Clear();
                             Console.WriteLine("************************************");
