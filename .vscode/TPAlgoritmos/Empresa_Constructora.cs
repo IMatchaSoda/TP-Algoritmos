@@ -209,17 +209,15 @@ namespace TPAlgoritmos_Constructora
         public void eliminar_Jefe(int nroLegajo)
         {
 
-            for (int i = 0; i < ListaObras.Count; i++)
+            foreach (Jefe_Obrero jefe in ListaJefes)
             {
-                if (((Jefe_Obrero)lista_jefes[i]).Legajo == nroLegajo)
-                {
-                    lista_jefes.RemoveAt(i);
-                    break;
-                }
+               if (jefe.Legajo == nroLegajo)
+            {
+               ListaJefes.Remove(jefe);
+               break;
             }
-
+	   }
         }
-
     }
 }
 
