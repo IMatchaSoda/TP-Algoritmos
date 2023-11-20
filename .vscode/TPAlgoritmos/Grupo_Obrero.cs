@@ -32,10 +32,6 @@ namespace TPAlgoritmos_Constructora
             get { return id_Grupo; }
             set { id_Grupo = value; }
         }
-        public ArrayList Listaobreros
-        {
-            get { return listaObreros; }
-        }
         //crea una instancia de obrero, y la añade a la lista
         public void Agregar_Obrero(string nombre, string apellido, string cargo, double sueldo, int legajo, int dni)
         {

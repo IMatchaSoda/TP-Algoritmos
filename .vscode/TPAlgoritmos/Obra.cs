@@ -11,12 +11,12 @@ namespace TPAlgoritmos_Constructora
         private Jefe_Obrero jefe_Obra;
         public Obra(string nombre_p, string tipo_obra, int dni_p, int id, int estado_avance, int tiempo_ejecucion, double costo, Jefe_Obrero jefe_Obra)
         {
-            nombre_p = nombre_propietario;
+            nombre_propietario= nombre_p ;
             this.tipo_obra = tipo_obra;
-            dni_p = dni_propietario;
+            dni_propietario= dni_p ;
             this.id = id;
             this.estado_avance = estado_avance;
-            tiempo_ejecucion = tiempoestimado_ejecucion;
+            tiempoestimado_ejecucion=tiempo_ejecucion ;
             this.costo = costo;
             this.jefe_Obra = jefe_Obra;
         }

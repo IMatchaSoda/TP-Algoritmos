@@ -17,3 +17,17 @@ C:\Users\iori_\Documents\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net
 C:\Users\iori_\Documents\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.pdb
 C:\Users\iori_\Documents\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.genruntimeconfig.cache
 C:\Users\iori_\Documents\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\ref\trabajo algoritmos.dll
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\bin\Debug\net6.0\trabajo algoritmos.exe
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\bin\Debug\net6.0\trabajo algoritmos.deps.json
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\bin\Debug\net6.0\trabajo algoritmos.runtimeconfig.json
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\bin\Debug\net6.0\trabajo algoritmos.dll
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\bin\Debug\net6.0\trabajo algoritmos.pdb
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.AssemblyInfoInputs.cache
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.AssemblyInfo.cs
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.csproj.CoreCompileInputs.cache
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.dll
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\refint\trabajo algoritmos.dll
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.pdb
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\trabajo algoritmos.genruntimeconfig.cache
+C:\Users\mario\OneDrive\Documentos\GitHub\TP-Algoritmos\.vscode\TPAlgoritmos\obj\Debug\net6.0\ref\trabajo algoritmos.dll
