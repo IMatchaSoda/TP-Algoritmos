@@ -98,13 +98,11 @@ namespace TPAlgoritmos_Constructora
         }
         public void Mostrar_Grupo()
         {
-            Console.WriteLine("grupos existentes");
-            foreach(Grupo_Obrero group in listaGrupos)
+            foreach(Grupo_Obrero grupo in listaGrupos)
             {
-                if(group.ID_Grupo!=null)
-                {
-                    Console.WriteLine("N° : {0}",group.ID_Grupo);
-                }                
+                
+                    Console.WriteLine(grupo);
+                  
             }
         }
         public void Eliminar_Grupo(int ID_Grupo)
@@ -119,16 +117,18 @@ namespace TPAlgoritmos_Constructora
             }
         }
 
-        public void Buscar_Grupo(int ID_Grupo)
+        public Grupo_Obrero Buscar_Grupo(int ID_Grupo)
         {
             foreach (Grupo_Obrero grupo in listaGrupos)
             {
                 if (grupo.ID_Grupo == ID_Grupo)
                 {
                     Console.WriteLine("Grupo encontrado");
-                    break;
+                    return grupo;
                 }
+                
             }
+            return null;
         }
 		public void ModificarEstadoAvance(int idObra, int avance)
 		{
@@ -153,7 +153,7 @@ namespace TPAlgoritmos_Constructora
 
             		if (avance == 100)
             		{
-                		Console.WriteLine("¡La obra ha finalizado!");
+                	
     // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
     // mueve a lista de obras finalizadas
     				ListaObrasFinalizadas.Add(obraAModificar);
@@ -192,16 +192,16 @@ namespace TPAlgoritmos_Constructora
 
             Console.WriteLine("cantidad de jefes: {0}", listaObras.Count);
         }
-        public void buscar_Jefe(int nroLegajo)
+        public Jefe_Obrero buscar_Jefe(int nroLegajo)
         {
             foreach (Jefe_Obrero jefe in lista_jefes)
             {
                 if (jefe.Legajo == nroLegajo)
                 {
-                    Console.WriteLine("Jefe encontrado");
-                    break;
+                    return jefe;
                 }
             }
+            return null;
         }
         public void mostrar_Jefes()
         {
