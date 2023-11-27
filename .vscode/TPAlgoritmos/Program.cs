@@ -246,16 +246,8 @@ namespace TPAlgoritmos_Constructora
                             e1.mostrar_Jefes();
                             Console.WriteLine("Ingrese el número de legajo del jefe que desea dar de baja:");
                             int legajoJefe = int.Parse(Console.ReadLine());
-
-                            try
-                            {
-                                e1.Eliminar_Jefe(legajoJefe);
-                                Console.WriteLine("El jefe ha sido dado de baja correctamente.");
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine($"Error al dar de baja al jefe: {ex.Message}");
-                            }
+                            e1.Eliminar_Jefe(legajoJefe);
+                             Console.WriteLine("El jefe ha sido dado de baja correctamente.");
                             break;
                         case "g":
 							Console.Clear();
@@ -273,15 +265,22 @@ namespace TPAlgoritmos_Constructora
 					}
 				}
 			}
-			catch (nohayobradisponible)
+			catch (nohayobradisponible n)
 			{
-
+				Console.WriteLine(n.Message);
 			}
-			catch(EstadoNegativoException)
+			catch(EstadoNegativoException e)
 			{
-
+				Console.WriteLine(e.Message);
 			}
-			catch(FormatException){ Console.WriteLine("ingrese un tipo correcto de dato."); }
+			catch(FormatException)
+			{ 
+				Console.WriteLine("ingrese un tipo correcto de dato."); 
+			}
+			catch (Exception ex)
+            {
+            	Console.WriteLine(ex.Message);
+            }
 
         }
 	}
