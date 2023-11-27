@@ -114,7 +114,7 @@ namespace TPAlgoritmos_Constructora
 							dni=int.Parse(Console.ReadLine());
 							Grupo_Obrero gr=e1.Buscar_Grupo(dni);
 							Obrero obr=gr.buscar_Obrero(dni);
-							gr.eliminar_Obrero(dni);
+							gr.eliminar_Obrero(obr);
 							break;
 						case "c":
 							Console.Clear();
