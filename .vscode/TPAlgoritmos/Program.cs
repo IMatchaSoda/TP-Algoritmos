@@ -102,7 +102,7 @@ namespace TPAlgoritmos_Constructora
 							double sueldo = double.Parse(Console.ReadLine());
 							Console.WriteLine("ingrese Numero de grupo donde quiere asignar al obrero");
 							int id = int.Parse(Console.ReadLine());
-							Console.Write("Cargo: ");
+							Console.WriteLine("Ingrese Cargo: ");
 							string cargo = Console.ReadLine();
 							Obrero ob1 = new Obrero(nombre, apellido, cargo, sueldo, nroLegajo, dni);
 							((Grupo_Obrero)e1.ListaGrupos[id]).Agregar_Obrero(ob1);
@@ -157,8 +157,7 @@ namespace TPAlgoritmos_Constructora
 								//Obras Finalizadas
 								case 3:
 									Console.Clear();
-									e1.mostrar_ObrasF();
-									Console.ReadKey();
+									e1.mostrar_ObrasF();									
 									break;
 								//Lista de jefes
 								case 4:
@@ -227,26 +226,40 @@ namespace TPAlgoritmos_Constructora
 							break;
 						case "e":
                             Console.Clear();
-
                             Console.WriteLine("Ingrese el Código de Obra:");
                             int codigoObra = int.Parse(Console.ReadLine());
                             Console.WriteLine("Ingrese el Nuevo Avance:");
                             int nuevoAvance = int.Parse(Console.ReadLine());
 							Obra OAMod= e1.Buscar_Obra(codigoObra);
-							if(OAMod != null)
-							{
-								e1.ModificarEstadoAvance(OAMod, nuevoAvance);
-								break;
-							}
-							else
-							{
+							foreach(Obra ob in e1.ListaObras){
+								if(ob.ID==codigoObra){
+									if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
+									{
+									ob.Estado_Avance=nuevoAvance;
+									Console.WriteLine("Estado de avance modificado correctamente: {obraAModificar.Estado_Avance}%.");
+									}
+								}
+								else
+								{
                                 throw new ObraNoEncontradaException($"La obra con ID {codigoObra} no fue encontrada.");
-                                break;
+								}	
 							}
-                            // Llama a la función para modificar el estado de avance de la obra
-                            
-                            
-
+							if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
+        		{
+            		OAMod.Estado_Avance = nuevoAvance;
+            		if (OAMod.Estado_Avance == 100)
+            		{
+    				// Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
+    				e1.ListaObras_Finalizadas.Add(OAMod);
+   	 				// Elimina la obra de la lista de obras en ejecución
+    				e1.ListaObras.Remove(OAMod);
+            		}	
+        		}
+                else
+                {
+                    throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
+                }
+							break;                                                       
                         case "f":
 							Console.Clear();
                             e1.Mostrar_Jefes();
