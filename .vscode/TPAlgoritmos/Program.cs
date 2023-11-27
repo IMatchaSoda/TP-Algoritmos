@@ -115,14 +115,6 @@ namespace TPAlgoritmos_Constructora
 							Grupo_Obrero gr=e1.Buscar_Grupo(dni);
 							Obrero obr=gr.buscar_Obrero(dni);
 							gr.eliminar_Obrero(dni);
-							
-							/*foreach(Grupo_Obrero grupo in e1.ListaGrupos){
-								gr= grupo;
-								foreach(Obrero obrero in gr.ListaObreros){
-									obr=obrero;
-								}
-							}
-							gr.eliminar_Obrero(dni);*/
 							break;
 						case "c":
 							Console.Clear();
