@@ -49,9 +49,10 @@ namespace TPAlgoritmos_Constructora
 		public static void menu()
 		{
 			Empresa_Constructora e1 = new Empresa_Constructora("chupala kioscu");
-			e1.Agregar_Obra("Propietario1", "Construcción", 12345678, 1, 30, 60, 100000, null);
-            e1.Agregar_Obra("Propietario2", "Remodelación", 87654321, 2, 60, 45, 80000, null);
-
+			Obra obra1 = new Obra("Propietario1", "Construcción", 12345678, 1, 30, 60, 100000, null);
+            Obra obra2= new Obra("Propietario2", "Remodelación", 87654321, 2, 60, 45, 80000, null);
+			e1.Agregar_Obra(obra1);
+			e1.Agregar_Obra(obra2);
             e1.Agregar_jefe(new Jefe_Obrero(5000, (Grupo_Obrero)e1.ListaGrupos[0], "Ricardio", "nahuehasd", "Capataz", 8000, 101, 11111111));
             e1.Agregar_jefe(new Jefe_Obrero(6000, (Grupo_Obrero)e1.ListaGrupos[1], "Panfilo", "jsoejose", "Capataz", 9000, 102, 22222222));
 
@@ -108,13 +109,20 @@ namespace TPAlgoritmos_Constructora
 							break;
 						case "b":
 							Console.Clear();
-							e1.Mostrar_Grupo();
-							Console.WriteLine("ingrese numero de grupo a consultar.");
-							id=int.Parse(Console.ReadLine());
-							((Grupo_Obrero)e1.ListaGrupos[id]).mostrar_Obreros();
+							e1.Mostrar_Grupo();														
 							Console.WriteLine("ingrese documento del obrero a eliminar.");
 							dni=int.Parse(Console.ReadLine());
-							((Grupo_Obrero)e1.ListaGrupos[id]).eliminar_Obrero(dni);
+							Grupo_Obrero gr=e1.Buscar_Grupo(dni);
+							Obrero obr=gr.buscar_Obrero(dni);
+							gr.eliminar_Obrero(dni);
+							
+							/*foreach(Grupo_Obrero grupo in e1.ListaGrupos){
+								gr= grupo;
+								foreach(Obrero obrero in gr.ListaObreros){
+									obr=obrero;
+								}
+							}
+							gr.eliminar_Obrero(dni);*/
 							break;
 						case "c":
 							Console.Clear();
@@ -215,13 +223,14 @@ namespace TPAlgoritmos_Constructora
 									g.IDobra = idob;
 									Jefe_Obrero j1 = new Jefe_Obrero(bono, g, nombre, apellido, cargo, sueldo, nroLegajo, dni);
 									e1.Agregar_jefe(j1);
-									e1.Agregar_Obra(nombreP, obratipo, dnip, idob, 0, tiempo_ejecucion, costo, j1);
+									Obra nueva_obra= new Obra(nombreP, obratipo, dnip, idob, 0, tiempo_ejecucion, costo, j1);
+									e1.Agregar_Obra(nueva_obra);
 									
 									break;
 								}
 								if (!disponible)
 								{
-									//throw new nohayobradisponible;
+									throw new nohayobradisponible("no existe la obra o no se encuentra disponible en este momento");
 								}
 
 							}
