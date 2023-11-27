@@ -57,13 +57,13 @@ namespace TPAlgoritmos_Constructora
             e1.Agregar_jefe(new Jefe_Obrero(6000, (Grupo_Obrero)e1.ListaGrupos[1], "Panfilo", "jsoejose", "Capataz", 9000, 102, 22222222));
 
             Obrero o = new Obrero("Marta", "Nast", "Plomero", 5500, 204, 66666666);
-            ((Grupo_Obrero)e1.ListaGrupos[0]).ListaObreros.Add(o);
+            ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o);
             Obrero o1 = new Obrero("Rogelio", "Rigolleau", "Albañil", 5000, 201, 33333333);
-            ((Grupo_Obrero)e1.ListaGrupos[0]).ListaObreros.Add(o1);
+            ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o1);
             Obrero o2 = new Obrero("Olga", "cossetini", "Peón", 4000, 202, 44444444);
-            ((Grupo_Obrero)e1.ListaGrupos[1]).ListaObreros.Add(o2);
+            ((Grupo_Obrero)e1.ListaGrupos[1]).Agregar_Obrero(o2);
             Obrero o3 = new Obrero("obrero ", "ape ", "Electricista", 6000, 203, 55555555);
-            ((Grupo_Obrero)e1.ListaGrupos[1]).ListaObreros.Add(o3);
+            ((Grupo_Obrero)e1.ListaGrupos[1]).Agregar_Obrero(o3);
 
             bool salir = false;
 			string opcion, opcionL;
@@ -105,7 +105,7 @@ namespace TPAlgoritmos_Constructora
 							Console.Write("Cargo: ");
 							string cargo = Console.ReadLine();
 							Obrero ob1 = new Obrero(nombre, apellido, cargo, sueldo, nroLegajo, dni);
-							((Grupo_Obrero)e1.ListaGrupos[id]).ListaObreros.Add(ob1);
+							((Grupo_Obrero)e1.ListaGrupos[id]).Agregar_Obrero(ob1);
 							break;
 						case "b":
 							Console.Clear();
@@ -114,7 +114,7 @@ namespace TPAlgoritmos_Constructora
 							dni=int.Parse(Console.ReadLine());
 							Grupo_Obrero gr=e1.Buscar_Grupo(dni);
 							Obrero obr=gr.buscar_Obrero(dni);
-							gr.eliminar_Obrero(obr);
+							gr.Eliminar_Obrero(obr);
 							break;
 						case "c":
 							Console.Clear();
@@ -134,17 +134,11 @@ namespace TPAlgoritmos_Constructora
 									Console.Clear();
 									if (e1.ListaGrupos.Count > 0)
 									{
-										e1.Mostrar_Grupo();
-										Console.WriteLine("ingrese ID del grupo que desea consultar.");
-										int idgrup = int.Parse(Console.ReadLine());
-										e1.Buscar_Grupo(idgrup);
 										foreach (Grupo_Obrero g in e1.ListaGrupos)
-										{
-											if (g.ID_Grupo == idgrup)
-											{
-												g.mostrar_Obreros();
-											}
+										{ 
+										g.mostrar_Obreros();
 										}
+									
 									}
 									Console.ReadKey();
 									break;
@@ -220,9 +214,10 @@ namespace TPAlgoritmos_Constructora
 									
 									break;
 								}
+								// no hay grupo dispobnible y no se puede setear la obra. 
 								if (!disponible)
 								{
-									throw new nohayobradisponible("no existe la obra o no se encuentra disponible en este momento");
+									throw new nohayobradisponible("no hay grupo de tabajadores disponible en este momento");
 								}
 
 							}
@@ -237,13 +232,24 @@ namespace TPAlgoritmos_Constructora
                             int codigoObra = int.Parse(Console.ReadLine());
                             Console.WriteLine("Ingrese el Nuevo Avance:");
                             int nuevoAvance = int.Parse(Console.ReadLine());
+							Obra OAMod= e1.Buscar_Obra(codigoObra);
+							if(OAMod != null)
+							{
+								e1.ModificarEstadoAvance(OAMod, nuevoAvance);
+								break;
+							}
+							else
+							{
+                                throw new ObraNoEncontradaException($"La obra con ID {codigoObra} no fue encontrada.");
+                                break;
+							}
                             // Llama a la función para modificar el estado de avance de la obra
-                            e1.ModificarEstadoAvance(codigoObra, nuevoAvance);
-                            break;
+                            
+                            
 
                         case "f":
 							Console.Clear();
-                            e1.mostrar_Jefes();
+                            e1.Mostrar_Jefes();
                             Console.WriteLine("Ingrese el número de legajo del jefe que desea dar de baja:");
                             int legajoJefe = int.Parse(Console.ReadLine());
                             e1.Eliminar_Jefe(legajoJefe);
@@ -277,10 +283,15 @@ namespace TPAlgoritmos_Constructora
 			{ 
 				Console.WriteLine("ingrese un tipo correcto de dato."); 
 			}
+			catch (NullReferenceException) 
+			{
+				Console.WriteLine("datos no encontrados. intente nuevamente.");
+			}
 			catch (Exception ex)
             {
             	Console.WriteLine(ex.Message);
             }
+			
 
         }
 	}

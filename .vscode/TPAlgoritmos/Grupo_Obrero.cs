@@ -33,15 +33,14 @@ namespace TPAlgoritmos_Constructora
             set { id_Grupo = value; }
         }
         //crea una instancia de obrero, y la añade a la lista
-        public void Agregar_Obrero(string nombre, string apellido, string cargo, double sueldo, int legajo, int dni)
+        public void Agregar_Obrero(Obrero Nuevo_obrero)
         {
-            Obrero Nuevo_obrero = new Obrero(nombre, apellido, cargo, sueldo, legajo, dni);
             listaObreros.Add(Nuevo_obrero);
         }
         //muestra la cantidad de elementos en lista
-        public void cantidad_Obreros()
+        public int cantidad_Obreros()
         {
-            Console.WriteLine(listaObreros.Count);
+            return listaObreros.Count;
         }
         //itera sobre lista,buscando en base a DNI
         public Obrero buscar_Obrero(int dni)
@@ -59,13 +58,13 @@ namespace TPAlgoritmos_Constructora
         //itera sobre la lista de obreros,y llama al metodo imprimir
         public void mostrar_Obreros()
         {
-            for (int i = 0; i < listaObreros.Count; i++)
+            foreach(Obrero ob in listaObreros) 
             {
-                ((Obrero)listaObreros[i]).imprimir();
+                ob.imprimir();
             }
         }
-        //itera sobre lista,buscando en base a DNI, si existe=true, elimina en indice
-        public void eliminar_Obrero(Obrero obrero)
+        //itera sobre lista,buscando en base a DNI, elimina en indice
+        public void Eliminar_Obrero(Obrero obrero)
         {
             for (int i = 0; i < listaObreros.Count; i++)
             {

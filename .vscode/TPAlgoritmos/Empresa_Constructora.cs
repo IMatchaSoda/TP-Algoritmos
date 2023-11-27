@@ -59,25 +59,25 @@ namespace TPAlgoritmos_Constructora
         {
             return listaObras.Count;
         }
-        public void buscar_Obra(int ID)
+        public Obra Buscar_Obra(int ID)
         {
             foreach (Obra obra in listaObras)
             {
                 if (obra.ID == ID)
                 {
-                    Console.WriteLine("Obra encontrada");
-                    break;
+                    return obra;
                 }
             }
+            return null;
         }
-        public void mostrar_Obras()
+        public void Mostrar_Obras()
         {
             for (int i = 0; i < listaObras.Count; i++)
             {
                 Console.WriteLine(listaObras[i].ToString());
             }
         }
-        public void eliminar_Obra(int id)
+        public void Eliminar_Obra(int id)
         {
 
             for (int i = 0; i < ListaObras.Count; i++)
@@ -128,34 +128,18 @@ namespace TPAlgoritmos_Constructora
             }
             return null;
         }
-		public void ModificarEstadoAvance(int idObra, int avance)
+		public void ModificarEstadoAvance(Obra obra, int avance)
 		{
-    		Obra obraAModificar = null;
-
-    // Busca la obra en la lista basándote en el ID
-    		foreach (Obra obra in ListaObras)
-    		{
-        		if (obra.ID == idObra)
-        		{
-            	obraAModificar = obra;
-            	break;
-        		}
-    		}
-    // Verifica si se encontró la obra
-    		if (obraAModificar != null)
-    		{
+    		Obra obraAModificar = obra;   		
     // Modifica el estado de avance de la obra encontrada
         		if (avance >= 0 && avance <= 100)
         		{
             		obraAModificar.Estado_Avance = avance;
-
             		if (avance == 100)
             		{
-                	
     // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
     // mueve a lista de obras finalizadas
     				ListaObrasFinalizadas.Add(obraAModificar);
-
    	 				// Elimina la obra de la lista de obras en ejecución
     				listaObras.Remove(obraAModificar);
             		}
@@ -164,16 +148,12 @@ namespace TPAlgoritmos_Constructora
                		 Console.WriteLine("Estado de avance modificado correctamente: {obraAModificar.Estado_Avance}%.");
             		}
         		}
-        else
-        {
-            throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
+                else
+                {
+                    throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
+                }
         }
-    }
-    else
-    {
-        throw new nohayobradisponible("no se encontro la obra");
-    }
-}
+        
 		public void mostrar_ObrasF()
         {
             for (int i = 0; i < ListaObras_Finalizadas.Count; i++)
@@ -185,10 +165,10 @@ namespace TPAlgoritmos_Constructora
         { 
             lista_jefes.Add(Nuevo_jefe);
         }
-        public void cantidad_Jefes()
+        public int Cantidad_Jefes()
         {
 
-            Console.WriteLine("cantidad de jefes: {0}", listaObras.Count);
+            return listaObras.Count;
         }
         public Jefe_Obrero buscar_Jefe(int nroLegajo)
         {
@@ -201,7 +181,7 @@ namespace TPAlgoritmos_Constructora
             }
             return null;
         }
-        public void mostrar_Jefes()
+        public void Mostrar_Jefes()
         {
             for (int i = 0; i < lista_jefes.Count; i++)
             {

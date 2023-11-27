@@ -18,4 +18,12 @@ namespace TPAlgoritmos_Constructora
             mensaje=m;
         }
     }
+    public class ObraNoEncontradaException : Exception
+    {
+        private string message;
+        public ObraNoEncontradaException(string men):base()
+        {
+            message=men;
+        }
+    }
 }
