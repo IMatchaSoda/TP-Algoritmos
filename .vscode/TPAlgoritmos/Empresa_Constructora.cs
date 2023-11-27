@@ -51,15 +51,13 @@ namespace TPAlgoritmos_Constructora
 		}
 
         //Agregar,Buscar,Eliminar,Listar,largo de lista(cantidad).(son 5 por lista)
-        public void Agregar_Obra(string nombre_p, string tipo_obra, int dni_p, int id, int estado_avance, int tiempo_ejecucion, double costo, Jefe_Obrero jefe_Obra)
+        public void Agregar_Obra(Obra obra)
         {
-            Obra Nueva_Obra = new Obra(nombre_p, tipo_obra, dni_p, id, estado_avance, tiempo_ejecucion, costo, jefe_Obra);
-            listaObras.Add(Nueva_Obra);
+            listaObras.Add(obra);
         }
-        public void cantidad_Obras()
+        public int cantidad_Obras()
         {
-
-            Console.WriteLine("cantidad de obras: {0}", listaObras.Count);
+            return listaObras.Count;
         }
         public void buscar_Obra(int ID)
         {
@@ -117,14 +115,14 @@ namespace TPAlgoritmos_Constructora
             }
         }
 
-        public Grupo_Obrero Buscar_Grupo(int ID_Grupo)
+        public Grupo_Obrero Buscar_Grupo(int dni)
         {
             foreach (Grupo_Obrero grupo in listaGrupos)
             {
-                if (grupo.ID_Grupo == ID_Grupo)
-                {
-                    Console.WriteLine("Grupo encontrado");
-                    return grupo;
+                foreach(Obrero o in grupo.ListaObreros){
+                    if(o.DNI==dni){
+                        return grupo;
+                    }
                 }
                 
             }
@@ -242,6 +240,7 @@ namespace TPAlgoritmos_Constructora
                 }
             }
         }
+        
 
     }
 }
