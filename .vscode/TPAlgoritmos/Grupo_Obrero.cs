@@ -65,15 +65,11 @@ namespace TPAlgoritmos_Constructora
             }
         }
         //itera sobre lista,buscando en base a DNI, si existe=true, elimina en indice
-        public void eliminar_Obrero(int dni)
+        public void eliminar_Obrero(Obrero obrero)
         {
             for (int i = 0; i < listaObreros.Count; i++)
             {
-                if (((Obrero)listaObreros[i]).DNI == dni)
-                {
-                    listaObreros.RemoveAt(i);
-                    break;
-                }
+                listaObreros.Remove(obrero);
             }
 
         }
