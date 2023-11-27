@@ -43,19 +43,18 @@ namespace TPAlgoritmos_Constructora
         {
             Console.WriteLine(listaObreros.Count);
         }
-        //itera sobre lista,buscando en base a DNI, si existe=true,lo encontró
-        public void buscar_Obrero(int dni)
+        //itera sobre lista,buscando en base a DNI
+        public Obrero buscar_Obrero(int dni)
         {
 
             foreach (Obrero obrero in listaObreros)
             {
                 if (obrero.DNI == dni)
                 {
-
-                    Console.WriteLine("Obrero encontrado");
-                    break;
+                    return obrero;
                 }
             }
+            return null;
         }
         //itera sobre la lista de obreros,y llama al metodo imprimir
         public void mostrar_Obreros()
