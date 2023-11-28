@@ -24,9 +24,9 @@ namespace TPAlgoritmos_Constructora
             set { grupo = value; }
         }
         //metodo polimorfico imprimir, heredado de obrero
-        public override void imprimir()
+        public override string imprimir()
         {
-            Console.WriteLine(string.Format("Nombre: {0} - Apellido: {1} - Cargo: {2} - Sueldo: ${3} - Legajo: {4} - DNI: {5} - Bono: ${6} - Grupo: {7}", nombre, apellido, cargo, sueldo, legajo, dni, bono, grupo));
+            return string.Format("nombre:{0}-apellido:{1}--cargo:{2}--sueldo:${3}--Legajo:{4}--DNI:{5}--bono:${6}--Grupo:{7}", nombre, apellido, cargo, sueldo, legajo, dni, bono, Grupo.ID_Grupo);
         }
     }
 }
