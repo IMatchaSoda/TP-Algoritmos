@@ -71,7 +71,7 @@ namespace TPAlgoritmos_Constructora
         {
             foreach(Obrero ob in listaObreros) 
             {
-                ob.imprimir();
+            	Console.WriteLine(ob.imprimir());
             }
         }
         //itera sobre lista,buscando en base a DNI, elimina en indice
