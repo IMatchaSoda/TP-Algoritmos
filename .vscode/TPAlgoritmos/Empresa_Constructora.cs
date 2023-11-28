@@ -13,7 +13,7 @@ namespace TPAlgoritmos_Constructora
         private ArrayList listaObras;
         private ArrayList listaGrupos;
         private ArrayList ListaObrasFinalizadas;
-		private ArrayList lista_jefes;
+		//private ArrayList lista_jefes;
         //Constructor
         public Empresa_Constructora(string empresa_nombre)
         {
@@ -21,7 +21,7 @@ namespace TPAlgoritmos_Constructora
             listaObras = new ArrayList();
             listaGrupos = new ArrayList();
 			ListaObrasFinalizadas= new ArrayList();
-			lista_jefes= new ArrayList();
+			//lista_jefes= new ArrayList();
             for (int i = 1; i <= 8; i++) //crea los 8 grupos
             {
                 listaGrupos.Add(new Grupo_Obrero(0, i));
@@ -42,10 +42,11 @@ namespace TPAlgoritmos_Constructora
         {
             get { return listaGrupos; }
         }
-		public ArrayList ListaJefes
+		/*
+        public ArrayList ListaJefes
         {
             get { return lista_jefes; }
-        }
+        } */
 		public ArrayList ListaObras_Finalizadas{
 			get{return ListaObrasFinalizadas;}
 		}
@@ -96,10 +97,11 @@ namespace TPAlgoritmos_Constructora
         }
         public void Mostrar_Grupo()
         {
+            
             foreach(Grupo_Obrero grupo in listaGrupos)
             {
                 
-                    Console.WriteLine(grupo);
+                Console.WriteLine(grupo.ToString());
                   
             }
         }
@@ -135,38 +137,7 @@ namespace TPAlgoritmos_Constructora
                 Console.WriteLine(ListaObras_Finalizadas[i].ToString());
             }
         }
-        public void Eliminar_Jefe(int nroLegajo)
-        {
-            foreach (Jefe_Obrero jefe in ListaJefes)
-            {
-                if (jefe.Legajo == nroLegajo)
-                {
-                    // Encuentra el grupo al que pertenece el jefe
-                    foreach (Grupo_Obrero grupo in listaGrupos)
-                    {
-                        if (grupo.ID_Grupo == jefe.Grupo.ID_Grupo)
-                        {
-
-
-                            foreach (Obra obrita in ListaObras)
-                            {
-                                if (obrita.Jefede_Obra == jefe)
-                                {
-                                    // Elimina al jefe de la lista de jefes
-                                    ListaJefes.Remove(jefe);
-                                    // Libera el grupo de obreros asignado
-                                    grupo.IDobra = 0;
-                                    // Desvincula al jefe de la obra
-                                    obrita.Jefede_Obra = null;
-                                }
-                            }
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-        }
+        
         
 
     }

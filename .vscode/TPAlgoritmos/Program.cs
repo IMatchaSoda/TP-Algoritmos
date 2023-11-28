@@ -161,10 +161,21 @@ namespace TPAlgoritmos_Constructora
 									break;
 								//Lista de jefes
 								case 4:
+									foreach( Grupo_Obrero grupo_ in e1.ListaGrupos)
+									{
+										
+										foreach(Obrero jef in grupo_.ListaObreros)
+										{
+											
+											jef.imprimir();
+										}
+										
+									}
+									/*
 									for (int j = 0; j < e1.ListaJefes.Count; j++)
 									{
 										((Jefe_Obrero)e1.ListaJefes[j]).imprimir();
-									}
+									}*/
                                     Console.ReadKey();
 									Console.Clear();
 									break;
@@ -262,10 +273,24 @@ namespace TPAlgoritmos_Constructora
 							break;                                                       
                         case "f":
 							Console.Clear();
-                            Console.WriteLine("Ingrese el número de legajo del jefe que desea dar de baja:");
-                            int legajoJefe = int.Parse(Console.ReadLine());
-                            e1.Eliminar_Jefe(legajoJefe);
-                             Console.WriteLine("El jefe ha sido dado de baja correctamente.");
+                            Console.WriteLine("Ingrese el número de DNI del jefe que desea dar de baja:");
+                            int DNI = int.Parse(Console.ReadLine());
+							Grupo_Obrero grupo= e1.Buscar_Grupo(DNI);
+							Jefe_Obrero jefe = grupo.BuscarJefe(DNI);
+							if (jefe != null)
+							{
+								Console.WriteLine("asdasd");
+								Obra obra=e1.Buscar_Obra(grupo.IDobra);
+								obra.Jefede_Obra = null;
+								//se desliga el grupo de la obra 
+								grupo.IDobra = 0;
+								//elimina al jefe de la empresa
+								grupo.Eliminar_Obrero(jefe);
+
+							}
+							
+
+                            Console.WriteLine("El jefe ha sido dado de baja correctamente.");
                             break;
                         case "g":
 							Console.Clear();
