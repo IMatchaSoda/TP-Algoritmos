@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mario\\.nuget\\packages\\": {},
-    "D:\\visual studio code\\visual fijo\\NuGetPackages": {}
+    "C:\\Users\\iori_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mario\\OneDrive\\Documentos\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\trabajo algoritmos.csproj",
+      "projectUniqueName": "C:\\Users\\iori_\\Documents\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\trabajo algoritmos.csproj",
       "projectName": "trabajo algoritmos",
-      "projectPath": "C:\\Users\\mario\\OneDrive\\Documentos\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\trabajo algoritmos.csproj",
-      "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mario\\OneDrive\\Documentos\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\obj\\",
+      "projectPath": "C:\\Users\\iori_\\Documents\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\trabajo algoritmos.csproj",
+      "packagesPath": "C:\\Users\\iori_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\iori_\\Documents\\GitHub\\TP-Algoritmos\\.vscode\\TPAlgoritmos\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\visual studio code\\visual fijo\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\iori_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,12 +56,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.25, 6.0.25]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.25, 6.0.25]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.25, 6.0.25]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.25, 6.0.25]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
