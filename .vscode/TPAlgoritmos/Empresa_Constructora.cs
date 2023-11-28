@@ -128,64 +128,11 @@ namespace TPAlgoritmos_Constructora
             }
             return null;
         }
-		public void ModificarEstadoAvance(Obra obra, int avance)
-		{
-    		Obra obraAModificar = obra;   		
-    // Modifica el estado de avance de la obra encontrada
-        		if (avance >= 0 && avance <= 100)
-        		{
-            		obraAModificar.Estado_Avance = avance;
-            		if (avance == 100)
-            		{
-    // Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
-    // mueve a lista de obras finalizadas
-    				ListaObrasFinalizadas.Add(obraAModificar);
-   	 				// Elimina la obra de la lista de obras en ejecución
-    				listaObras.Remove(obraAModificar);
-            		}
-            		else
-            		{
-               		 Console.WriteLine("Estado de avance modificado correctamente: {obraAModificar.Estado_Avance}%.");
-            		}
-        		}
-                else
-                {
-                    throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
-                }
-        }
-        
 		public void mostrar_ObrasF()
         {
             for (int i = 0; i < ListaObras_Finalizadas.Count; i++)
             {
                 Console.WriteLine(ListaObras_Finalizadas[i].ToString());
-            }
-        }
-		public void Agregar_jefe(Jefe_Obrero Nuevo_jefe)
-        { 
-            lista_jefes.Add(Nuevo_jefe);
-        }
-        public int Cantidad_Jefes()
-        {
-
-            return listaObras.Count;
-        }
-        public Jefe_Obrero buscar_Jefe(int nroLegajo)
-        {
-            foreach (Jefe_Obrero jefe in lista_jefes)
-            {
-                if (jefe.Legajo == nroLegajo)
-                {
-                    return jefe;
-                }
-            }
-            return null;
-        }
-        public void Mostrar_Jefes()
-        {
-            for (int i = 0; i < lista_jefes.Count; i++)
-            {
-                Console.WriteLine(lista_jefes[i].ToString());
             }
         }
         public void Eliminar_Jefe(int nroLegajo)
