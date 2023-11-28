@@ -125,8 +125,15 @@ namespace TPAlgoritmos_Constructora
                     if(o.DNI==dni){
                         return grupo;
                     }
+                    
                 }
-                
+                foreach(Jefe_Obrero j in grupo.ListaObreros)
+                {
+                    if (j.DNI == dni)
+                    {
+                        return grupo;
+                    }
+                }
             }
             return null;
         }

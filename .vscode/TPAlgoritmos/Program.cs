@@ -49,14 +49,19 @@ namespace TPAlgoritmos_Constructora
 		public static void menu()
 		{
 			Empresa_Constructora e1 = new Empresa_Constructora("chupala kioscu");
-			Obra obra1 = new Obra("Propietario1", "Construcción", 12345678, 1, 30, 60, 100000, null);
-            Obra obra2= new Obra("Propietario2", "Remodelación", 87654321, 2, 60, 45, 80000, null);
+            Jefe_Obrero jefedeobra = new Jefe_Obrero(22.1, (Grupo_Obrero)e1.ListaGrupos[0], "Marta", "Nast", "jefe", 5500, 204, 1233456);
+            Jefe_Obrero jefedeobra1 = new Jefe_Obrero(30, (Grupo_Obrero)e1.ListaGrupos[1],"asdas", "joseu", "jefe", 45600, 304, 123);
+
+            Obra obra1 = new Obra("Propietario1", "Construcción", 12345678, 1, 30, 60, 100000, jefedeobra);
+            Obra obra2= new Obra("Propietario2", "Remodelación", 87654321, 2, 60, 45, 80000, jefedeobra1);
 			e1.Agregar_Obra(obra1);
 			e1.Agregar_Obra(obra2);
+			
+
             ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(new Jefe_Obrero(5000, (Grupo_Obrero)e1.ListaGrupos[0], "Ricardio", "nahuehasd", "Capataz", 8000, 101, 11111111));
             ((Grupo_Obrero)e1.ListaGrupos[1]).Agregar_Obrero(new Jefe_Obrero(6000, (Grupo_Obrero)e1.ListaGrupos[1], "Panfilo", "jsoejose", "Capataz", 9000, 102, 22222222));
 
-            Obrero o = new Obrero("Marta", "Nast", "Plomero", 5500, 204, 66666666);
+            Obrero o = new Obrero("Marta", "Nast", "jefe", 5500, 204, 1233456);
             ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o);
             Obrero o1 = new Obrero("Rogelio", "Rigolleau", "Albañil", 5000, 201, 33333333);
             ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o1);
@@ -104,11 +109,6 @@ namespace TPAlgoritmos_Constructora
 							int id = int.Parse(Console.ReadLine());
 							Console.WriteLine("Ingrese Cargo: ");
 							string cargo = Console.ReadLine();
-							if(cargo=="jefe"){
-								Console.Write("Bono x Cargo: ");
-								double bonoo = double.Parse(Console.ReadLine());
-								
-							}
 							Obrero ob1 = new Obrero(nombre, apellido, cargo, sueldo, nroLegajo, dni);
 							((Grupo_Obrero)e1.ListaGrupos[id]).Agregar_Obrero(ob1);
 							break;
@@ -166,11 +166,15 @@ namespace TPAlgoritmos_Constructora
 									break;
 								//Lista de jefes
 								case 4:
-									foreach(Obra Obra  in e1.ListaObras){
-										if(Obra.Jefede_Obra!=null){
-											Obra.Jefede_Obra.imprimir();
-										}
-									}
+                                    foreach (Obra Obra in e1.ListaObras)
+                                    {
+                                        if (Obra.Jefede_Obra != null)
+                                        {
+                                            Obra.Jefede_Obra.imprimir();
+                                        }
+                                    }
+
+                                    Console.ReadKey();
 									Console.Clear();
 									break;
 							}
@@ -180,32 +184,34 @@ namespace TPAlgoritmos_Constructora
 							Console.Clear();
 							bool disponible = false;
 							Console.Write("Nombre Propietario: ");
-							string nombreP = Console.ReadLine();
+							string nombreP = Console.ReadLine();Console.WriteLine();
 							Console.Write("DNI Propietario: ");
-							int dnip = int.Parse(Console.ReadLine());
+							int dnip = int.Parse(Console.ReadLine());; Console.WriteLine();
 							Console.Write("Ingrese tipo de obra: ");
-                            string obratipo = Console.ReadLine();
+                            string obratipo = Console.ReadLine();; Console.WriteLine();
 							Console.Write("ingrese tiempo de ejecucion estimado (en dias): ");
                             int tiempo_ejecucion = int.Parse(Console.ReadLine()); Console.WriteLine();
 							Console.Write("Costo de la obra: ");
                             double costo = double.Parse(Console.ReadLine());; Console.WriteLine();
 							Console.Write("Nombre: ");
                             nombre = Console.ReadLine(); Console.WriteLine();
-							Console.WriteLine("Apellido: ");
+							Console.Write("Apellido: ");
                             apellido = Console.ReadLine();Console.WriteLine();
-							Console.WriteLine("DNI: "); 
+							Console.Write("DNI: "); 
                             dni = int.Parse(Console.ReadLine()); Console.WriteLine();
-							Console.WriteLine("Número de legajo: ");
+							Console.Write("Número de legajo: ");
                             nroLegajo = int.Parse(Console.ReadLine()); Console.WriteLine();
-                            Console.WriteLine("Sueldo: ");
+                            Console.Write("Sueldo: ");
 							sueldo = double.Parse(Console.ReadLine()); Console.WriteLine();
-                            Console.WriteLine("Cargo: ");
+                            Console.WriteLine("ingrese Numero de grupo donde quiere asignar al obrero");
+							int idj = int.Parse(Console.ReadLine()); Console.WriteLine();
+                            Console.Write("Cargo: ");
 							cargo = Console.ReadLine(); Console.WriteLine();
-                            Console.WriteLine("Bono x Cargo: ");
+                            Console.Write("Bono x Cargo: ");
 							double bono = double.Parse(Console.ReadLine());
 							foreach (Grupo_Obrero g in e1.ListaGrupos)
 							{
-								if (g.IDobra == null)
+								if (g.IDobra == 0)
 								{
 									disponible = true;
 									g.IDobra = idob;
@@ -216,15 +222,15 @@ namespace TPAlgoritmos_Constructora
 									
 									break;
 								}
-								// no hay grupo dispobnible y no se puede setear la obra. 
-								if (!disponible)
-								{
-									throw new nohayobradisponible("no hay grupo de tabajadores disponible en este momento");
-								}
 
 							}
+                            // no hay grupo dispobnible y no se puede setear la obra. 
+                            if (!disponible)
+                            {
+                                throw new nohayobradisponible("no hay grupo de tabajadores disponible en este momento");
+                            }
 
-							idob++;
+                            idob++;
 
 							break;
 						case "e":
@@ -268,18 +274,24 @@ namespace TPAlgoritmos_Constructora
                             Console.WriteLine("Ingrese el número de DNI del jefe que desea dar de baja:");
                             int DNI = int.Parse(Console.ReadLine());
 							Grupo_Obrero grupo= e1.Buscar_Grupo(DNI);
-							Jefe_Obrero jefe = grupo.BuscarJefe(DNI);
-							if (jefe != null)
-							{
-								Console.WriteLine("asdasd");
-								Obra obra=e1.Buscar_Obra(grupo.IDobra);
-								obra.Jefede_Obra = null;
-								//se desliga el grupo de la obra 
-								grupo.IDobra = 0;
-								//elimina al jefe de la empresa
-								grupo.Eliminar_Obrero(jefe);
+							Jefe_Obrero jefe = ((Grupo_Obrero)e1.ListaGrupos).BuscarJefe(DNI);
+							 
+								
+								if (jefe != null)
+								{
 
-							}
+									Console.WriteLine("asdasd");
+									Obra obra = e1.Buscar_Obra(grupo.IDobra);
+									obra.Jefede_Obra = null;
+									//se desliga el grupo de la obra 
+									grupo.IDobra = 0;
+									//elimina al jefe de la empresa
+									grupo.Eliminar_Obrero(jefe);
+
+								}
+							
+
+                            Console.WriteLine("El jefe ha sido dado de baja correctamente.");
                             break;
                         case "g":
 							Console.Clear();
