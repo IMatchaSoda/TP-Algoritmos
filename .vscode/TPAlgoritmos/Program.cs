@@ -271,11 +271,13 @@ namespace TPAlgoritmos_Constructora
 							break;                                                       
                         case "f":
 							Console.Clear();
+							Jefe_Obrero jefe=null;
                             Console.WriteLine("Ingrese el número de DNI del jefe que desea dar de baja:");
                             int DNI = int.Parse(Console.ReadLine());
 							Grupo_Obrero grupo= e1.Buscar_Grupo(DNI);
-							Jefe_Obrero jefe = ((Grupo_Obrero)e1.ListaGrupos).BuscarJefe(DNI);
-							 
+							foreach(Grupo_Obrero g in e1.ListaGrupos){
+							jefe = g.BuscarJefe(DNI);
+							}
 								
 								if (jefe != null)
 								{
