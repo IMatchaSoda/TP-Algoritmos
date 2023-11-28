@@ -49,9 +49,9 @@ namespace TPAlgoritmos_Constructora
             set { dni = value; }
         }
         //Metodo polimorfico imprimir,heredable a jefe_obrero
-        public virtual void imprimir()
+        public virtual string imprimir()
         {
-            Console.WriteLine("nombre:{0}-apellido:{1}--cargo:{2}--sueldo:{3}--Legajo:{4}--DNI:{5}", nombre, apellido, cargo, sueldo, legajo, dni);
+            return string.Format("nombre:{0}-apellido:{1}--cargo:{2}--sueldo:{3}--Legajo:{4}--DNI:{5}", nombre, apellido, cargo, sueldo, legajo, dni);
         }
     }
 }
