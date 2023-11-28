@@ -141,7 +141,7 @@ namespace TPAlgoritmos_Constructora
 									{
 										foreach (Grupo_Obrero g in e1.ListaGrupos)
 										{ 
-										g.mostrar_Obreros();
+											g.mostrar_Obreros();
 										}
 									
 									}
@@ -157,20 +157,21 @@ namespace TPAlgoritmos_Constructora
                                             Console.WriteLine("id de obra: " + ((Obra)e1.ListaObras[i]).ID);
                                         }
 									}
-									Console.ReadKey();
 									break;
 								//Obras Finalizadas
 								case 3:
 									Console.Clear();
-									e1.mostrar_ObrasF();									
+									e1.mostrar_ObrasF();
 									break;
 								//Lista de jefes
 								case 4:
+									Console.Clear();
                                     foreach (Obra Obra in e1.ListaObras)
                                     {
                                         if (Obra.Jefede_Obra != null)
                                         {
-                                            Obra.Jefede_Obra.imprimir();
+                                           
+                                        	Console.WriteLine(Obra.Jefede_Obra.imprimir());
                                         }
                                     }
 
@@ -250,7 +251,7 @@ namespace TPAlgoritmos_Constructora
 								}
 								else
 								{
-                                throw new ObraNoEncontradaException($"La obra con ID {codigoObra} no fue encontrada.");
+                                throw new ObraNoEncontradaException("La obra  no fue encontrada.");
 								}	
 							}
 							if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
@@ -272,21 +273,21 @@ namespace TPAlgoritmos_Constructora
                         case "f":
 							Console.Clear();
 							Jefe_Obrero jefe=null;
+							Grupo_Obrero grupo=null;
                             Console.WriteLine("Ingrese el número de DNI del jefe que desea dar de baja:");
                             int DNI = int.Parse(Console.ReadLine());
-							Grupo_Obrero grupo= e1.Buscar_Grupo(DNI);
-							foreach(Grupo_Obrero g in e1.ListaGrupos){
-							jefe = g.BuscarJefe(DNI);
+							foreach(Obra ob in e1.ListaObras){
+                            	if(ob.Jefede_Obra.DNI==DNI){	
+                            	ob.Jefede_Obra.Grupo.IDobra=0;
+                            	jefe=ob.Jefede_Obra;
+                            	ob.Jefede_Obra=null;
 							}
+                           }
 								
 								if (jefe != null)
 								{
-
-									Console.WriteLine("asdasd");
-									Obra obra = e1.Buscar_Obra(grupo.IDobra);
-									obra.Jefede_Obra = null;
-									//se desliga el grupo de la obra 
-									grupo.IDobra = 0;
+									grupo=jefe.Grupo;
+									Console.WriteLine("Chupala kioscu");
 									//elimina al jefe de la empresa
 									grupo.Eliminar_Obrero(jefe);
 
