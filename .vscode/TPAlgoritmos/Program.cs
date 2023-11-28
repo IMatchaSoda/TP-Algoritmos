@@ -53,8 +53,8 @@ namespace TPAlgoritmos_Constructora
             Obra obra2= new Obra("Propietario2", "Remodelación", 87654321, 2, 60, 45, 80000, null);
 			e1.Agregar_Obra(obra1);
 			e1.Agregar_Obra(obra2);
-            e1.Agregar_jefe(new Jefe_Obrero(5000, (Grupo_Obrero)e1.ListaGrupos[0], "Ricardio", "nahuehasd", "Capataz", 8000, 101, 11111111));
-            e1.Agregar_jefe(new Jefe_Obrero(6000, (Grupo_Obrero)e1.ListaGrupos[1], "Panfilo", "jsoejose", "Capataz", 9000, 102, 22222222));
+            ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(new Jefe_Obrero(5000, (Grupo_Obrero)e1.ListaGrupos[0], "Ricardio", "nahuehasd", "Capataz", 8000, 101, 11111111));
+            ((Grupo_Obrero)e1.ListaGrupos[1]).Agregar_Obrero(new Jefe_Obrero(6000, (Grupo_Obrero)e1.ListaGrupos[1], "Panfilo", "jsoejose", "Capataz", 9000, 102, 22222222));
 
             Obrero o = new Obrero("Marta", "Nast", "Plomero", 5500, 204, 66666666);
             ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o);
@@ -207,7 +207,7 @@ namespace TPAlgoritmos_Constructora
 									disponible = true;
 									g.IDobra = idob;
 									Jefe_Obrero j1 = new Jefe_Obrero(bono, g, nombre, apellido, cargo, sueldo, nroLegajo, dni);
-									e1.Agregar_jefe(j1);
+									g.Agregar_Obrero(j1);
 									Obra nueva_obra= new Obra(nombreP, obratipo, dnip, idob, 0, tiempo_ejecucion, costo, j1);
 									e1.Agregar_Obra(nueva_obra);
 									
@@ -262,7 +262,6 @@ namespace TPAlgoritmos_Constructora
 							break;                                                       
                         case "f":
 							Console.Clear();
-                            e1.Mostrar_Jefes();
                             Console.WriteLine("Ingrese el número de legajo del jefe que desea dar de baja:");
                             int legajoJefe = int.Parse(Console.ReadLine());
                             e1.Eliminar_Jefe(legajoJefe);
