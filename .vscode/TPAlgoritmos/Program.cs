@@ -237,32 +237,28 @@ namespace TPAlgoritmos_Constructora
                             Console.WriteLine("Ingrese el Nuevo Avance:");
                             int nuevoAvance = int.Parse(Console.ReadLine());
 							Obra OAMod= e1.Buscar_Obra(codigoObra);
-									if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
-									{
-									OAMod.Estado_Avance=nuevoAvance;
-									Console.WriteLine("Estado de avance modificado correctamente");
-									}
 									
-									else
-									{
-                                	throw new ObraNoEncontradaException("La obra  no fue encontrada.");
-								}		
+							if(OAMod==null)
+							{
+                                throw new ObraNoEncontradaException("La obra  no fue encontrada.");
+							}		
 							
-							if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
-        		{
-            		OAMod.Estado_Avance = nuevoAvance;
-            		if (OAMod.Estado_Avance == 100)
-            		{
-    				// Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
-    				e1.ListaObras_Finalizadas.Add(OAMod);
-   	 				// Elimina la obra de la lista de obras en ejecución
-    				e1.ListaObras.Remove(OAMod);
-            		}	
-        		}
-                else
-                {
-                    throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
-                }
+							if ( nuevoAvance >= OAMod.Estado_Avance  && OAMod.Estado_Avance <= 100)
+        					{
+            					Console.WriteLine("Estado de avance modificado correctamente");
+								OAMod.Estado_Avance = nuevoAvance;
+            					if (OAMod.Estado_Avance == 100)
+            					{
+    							// Mueve la obra de la lista de obras en ejecución a la lista de obras finalizadas
+    							e1.ListaObras_Finalizadas.Add(OAMod);
+   	 							// Elimina la obra de la lista de obras en ejecución
+    							e1.ListaObras.Remove(OAMod);
+            					}	
+        					}
+							else
+							{
+							   throw new EstadoNegativoException("El estado de avance no puede ser menor que 0 ni mayor que 100");
+							}
 							break;                                                       
                         case "f":
 							Console.Clear();

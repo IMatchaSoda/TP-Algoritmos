@@ -13,7 +13,7 @@ namespace TPAlgoritmos_Constructora
         private ArrayList listaObras;
         private ArrayList listaGrupos;
         private ArrayList ListaObrasFinalizadas;
-		//private ArrayList lista_jefes;
+		
         //Constructor
         public Empresa_Constructora(string empresa_nombre)
         {
@@ -42,11 +42,7 @@ namespace TPAlgoritmos_Constructora
         {
             get { return listaGrupos; }
         }
-		/*
-        public ArrayList ListaJefes
-        {
-            get { return lista_jefes; }
-        } */
+		
 		public ArrayList ListaObras_Finalizadas{
 			get{return ListaObrasFinalizadas;}
 		}

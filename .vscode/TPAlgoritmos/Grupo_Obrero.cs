@@ -55,17 +55,6 @@ namespace TPAlgoritmos_Constructora
             }
             return null;
         }
-        public Jefe_Obrero BuscarJefe(int dni)
-        {
-            foreach (Jefe_Obrero J in listaObreros)
-            {
-                if (J.DNI == dni)
-                {
-                    return J;
-                }
-            }
-            return null;
-        }
         //itera sobre la lista de obreros,y llama al metodo imprimir
         public void mostrar_Obreros()
         {
