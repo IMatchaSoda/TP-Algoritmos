@@ -52,16 +52,11 @@ namespace TPAlgoritmos_Constructora
             Jefe_Obrero jefedeobra = new Jefe_Obrero(22.1, (Grupo_Obrero)e1.ListaGrupos[0], "Marta", "Nast", "jefe", 5500, 204, 1233456);
             Jefe_Obrero jefedeobra1 = new Jefe_Obrero(30, (Grupo_Obrero)e1.ListaGrupos[1],"asdas", "joseu", "jefe", 45600, 304, 123);
 
-            Obra obra1 = new Obra("Propietario1", "Construcción", 12345678, 1, 30, 60, 100000, jefedeobra);
-            Obra obra2= new Obra("Propietario2", "Remodelación", 87654321, 2, 60, 45, 80000, jefedeobra1);
+            Obra obra1 = new Obra("Jorge", "Construcción", 12345678, 1, 30, 60, 100000, jefedeobra);
+            Obra obra2= new Obra("Jose", "Remodelación", 87654321, 2, 60, 45, 80000, jefedeobra1);
 			e1.Agregar_Obra(obra1);
 			e1.Agregar_Obra(obra2);
-			
-
-            ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(new Jefe_Obrero(5000, (Grupo_Obrero)e1.ListaGrupos[0], "Ricardio", "nahuehasd", "Capataz", 8000, 101, 11111111));
-            ((Grupo_Obrero)e1.ListaGrupos[1]).Agregar_Obrero(new Jefe_Obrero(6000, (Grupo_Obrero)e1.ListaGrupos[1], "Panfilo", "jsoejose", "Capataz", 9000, 102, 22222222));
-
-            Obrero o = new Obrero("Marta", "Nast", "jefe", 5500, 204, 1233456);
+            Obrero o = new Obrero("Marta", "Nast", "peon", 5500, 204, 1233456);
             ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o);
             Obrero o1 = new Obrero("Rogelio", "Rigolleau", "Albañil", 5000, 201, 33333333);
             ((Grupo_Obrero)e1.ListaGrupos[0]).Agregar_Obrero(o1);
@@ -114,7 +109,14 @@ namespace TPAlgoritmos_Constructora
 							break;
 						case "b":
 							Console.Clear();
-							e1.Mostrar_Grupo();														
+							if (e1.ListaGrupos.Count > 0)
+									{
+										foreach (Grupo_Obrero g in e1.ListaGrupos)
+										{ 
+											g.mostrar_Obreros();
+										}
+									
+									}
 							Console.WriteLine("ingrese documento del obrero a eliminar.");
 							dni=int.Parse(Console.ReadLine());
 							Grupo_Obrero gr=e1.Buscar_Grupo(dni);
@@ -145,18 +147,22 @@ namespace TPAlgoritmos_Constructora
 										}
 									
 									}
-									Console.ReadKey();
 									break;
 								//Lista obras 50%+
 								case 2:
 									Console.Clear();
-									for (int i = 0; i < e1.ListaObras.Count; i++)
-									{
-										if (((Obra)e1.ListaObras[i]).Estado_Avance > 50)
-										{
-                                            Console.WriteLine("id de obra: " + ((Obra)e1.ListaObras[i]).ID);
-                                        }
-									}
+									Console.Clear();
+if (e1.ListaObras != null && e1.ListaObras.Count > 0)
+{
+    foreach (Obra obra in e1.ListaObras)
+    {
+        if (obra.Estado_Avance > 50)
+        {
+            Console.WriteLine(obra.ToString());
+        }
+    }
+}
+
 									break;
 								//Obras Finalizadas
 								case 3:
@@ -175,8 +181,6 @@ namespace TPAlgoritmos_Constructora
                                         }
                                     }
 
-                                    Console.ReadKey();
-									Console.Clear();
 									break;
 							}
 
@@ -205,7 +209,6 @@ namespace TPAlgoritmos_Constructora
                             Console.Write("Sueldo: ");
 							sueldo = double.Parse(Console.ReadLine()); Console.WriteLine();
                             Console.WriteLine("ingrese Numero de grupo donde quiere asignar al obrero");
-							int idj = int.Parse(Console.ReadLine()); Console.WriteLine();
                             Console.Write("Cargo: ");
 							cargo = Console.ReadLine(); Console.WriteLine();
                             Console.Write("Bono x Cargo: ");
@@ -241,19 +244,17 @@ namespace TPAlgoritmos_Constructora
                             Console.WriteLine("Ingrese el Nuevo Avance:");
                             int nuevoAvance = int.Parse(Console.ReadLine());
 							Obra OAMod= e1.Buscar_Obra(codigoObra);
-							foreach(Obra ob in e1.ListaObras){
-								if(ob.ID==codigoObra){
 									if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
 									{
-									ob.Estado_Avance=nuevoAvance;
-									Console.WriteLine("Estado de avance modificado correctamente: {obraAModificar.Estado_Avance}%.");
+									OAMod.Estado_Avance=nuevoAvance;
+									Console.WriteLine("Estado de avance modificado correctamente");
 									}
-								}
-								else
-								{
-                                throw new ObraNoEncontradaException("La obra  no fue encontrada.");
-								}	
-							}
+									
+									else
+									{
+                                	throw new ObraNoEncontradaException("La obra  no fue encontrada.");
+								}		
+							
 							if (OAMod.Estado_Avance >= 0 && OAMod.Estado_Avance <= 100)
         		{
             		OAMod.Estado_Avance = nuevoAvance;
@@ -272,6 +273,14 @@ namespace TPAlgoritmos_Constructora
 							break;                                                       
                         case "f":
 							Console.Clear();
+							foreach (Obra Obra in e1.ListaObras)
+                                    {
+                                        if (Obra.Jefede_Obra != null)
+                                        {
+                                           
+                                        	Console.WriteLine(Obra.Jefede_Obra.imprimir());
+                                        }
+                                    }
 							Jefe_Obrero jefe=null;
 							Grupo_Obrero grupo=null;
                             Console.WriteLine("Ingrese el número de DNI del jefe que desea dar de baja:");
