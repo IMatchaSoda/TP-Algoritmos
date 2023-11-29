@@ -60,5 +60,13 @@ namespace TPAlgoritmos_Constructora
             get { return jefe_Obra; }
             set { jefe_Obra = value; }
         }
+        public override string ToString()
+{
+    
+    return "Nombre:"+Nombre_propietario+"--Tipo de obra:"+Tipo_Obra+"--DNI Propietario:"+DNI_Propietario+"--ID:"+ID+"--Estado de Avance:"+Estado_Avance+"--Tiempo estimado de ejecucion:"+Tiempo_Ejecucion+ "--Costo:"+Costo+"--Jefe a cargo:"+Jefede_Obra.Nombre+"";
+}
+
+
+
     }
 }
