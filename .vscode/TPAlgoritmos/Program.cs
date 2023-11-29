@@ -48,12 +48,12 @@ namespace TPAlgoritmos_Constructora
 		}
 		public static void menu()
 		{
-			Empresa_Constructora e1 = new Empresa_Constructora("chupala kioscu");
+			Empresa_Constructora e1 = new Empresa_Constructora("Empresa Comercial");
             Jefe_Obrero jefedeobra = new Jefe_Obrero(22.1, (Grupo_Obrero)e1.ListaGrupos[0], "Marta", "Nast", "jefe", 5500, 204, 1233456);
             Jefe_Obrero jefedeobra1 = new Jefe_Obrero(30, (Grupo_Obrero)e1.ListaGrupos[1],"asdas", "joseu", "jefe", 45600, 304, 123);
 
-            Obra obra1 = new Obra("Jorge", "Construcción", 12345678, 1, 30, 60, 100000, jefedeobra);
-            Obra obra2= new Obra("Jose", "Remodelación", 87654321, 2, 60, 45, 80000, jefedeobra1);
+            Obra obra1 = new Obra("Jorge", "Construcción", 12345678, 20, 30, 60, 100000, jefedeobra);
+            Obra obra2= new Obra("Jose", "Remodelación", 87654321, 21, 60, 45, 80000, jefedeobra1);
 			e1.Agregar_Obra(obra1);
 			e1.Agregar_Obra(obra2);
             Obrero o = new Obrero("Marta", "Nast", "peon", 5500, 204, 1233456);
@@ -152,17 +152,14 @@ namespace TPAlgoritmos_Constructora
 								case 2:
 									Console.Clear();
 									Console.Clear();
-if (e1.ListaObras != null && e1.ListaObras.Count > 0)
-{
-    foreach (Obra obra in e1.ListaObras)
-    {
-        if (obra.Estado_Avance > 50)
-        {
-            Console.WriteLine(obra.ToString());
-        }
-    }
-}
-
+									if (e1.ListaObras != null && e1.ListaObras.Count > 0)
+									{ 
+									foreach (Obra obra in e1.ListaObras)
+									{
+										if (obra.Estado_Avance > 50){Console.WriteLine(obra.ToString());}
+									}
+									}
+    
 									break;
 								//Obras Finalizadas
 								case 3:
@@ -176,18 +173,16 @@ if (e1.ListaObras != null && e1.ListaObras.Count > 0)
                                     {
                                         if (Obra.Jefede_Obra != null)
                                         {
-                                           
                                         	Console.WriteLine(Obra.Jefede_Obra.imprimir());
                                         }
                                     }
-
 									break;
 							}
-
 							break;
 						case "d":
 							Console.Clear();
 							bool disponible = false;
+							
 							Console.Write("Nombre Propietario: ");
 							string nombreP = Console.ReadLine();Console.WriteLine();
 							Console.Write("DNI Propietario: ");
@@ -196,8 +191,9 @@ if (e1.ListaObras != null && e1.ListaObras.Count > 0)
                             string obratipo = Console.ReadLine();; Console.WriteLine();
 							Console.Write("ingrese tiempo de ejecucion estimado (en dias): ");
                             int tiempo_ejecucion = int.Parse(Console.ReadLine()); Console.WriteLine();
-							Console.Write("Costo de la obra: ");
-                            double costo = double.Parse(Console.ReadLine());; Console.WriteLine();
+							Console.Write("Costo de la obra: $");
+                            double costo = double.Parse(Console.ReadLine());
+							Console.WriteLine("ingrese datos del Jefe de Obra");
 							Console.Write("Nombre: ");
                             nombre = Console.ReadLine(); Console.WriteLine();
 							Console.Write("Apellido: ");
@@ -206,12 +202,9 @@ if (e1.ListaObras != null && e1.ListaObras.Count > 0)
                             dni = int.Parse(Console.ReadLine()); Console.WriteLine();
 							Console.Write("Número de legajo: ");
                             nroLegajo = int.Parse(Console.ReadLine()); Console.WriteLine();
-                            Console.Write("Sueldo: ");
+                            Console.Write("Sueldo: $");
 							sueldo = double.Parse(Console.ReadLine()); Console.WriteLine();
-                            Console.WriteLine("ingrese Numero de grupo donde quiere asignar al obrero");
-                            Console.Write("Cargo: ");
-							cargo = Console.ReadLine(); Console.WriteLine();
-                            Console.Write("Bono x Cargo: ");
+                            Console.Write("Bono por Cargo: $");
 							double bono = double.Parse(Console.ReadLine());
 							foreach (Grupo_Obrero g in e1.ListaGrupos)
 							{
@@ -219,7 +212,7 @@ if (e1.ListaObras != null && e1.ListaObras.Count > 0)
 								{
 									disponible = true;
 									g.IDobra = idob;
-									Jefe_Obrero j1 = new Jefe_Obrero(bono, g, nombre, apellido, cargo, sueldo, nroLegajo, dni);
+									Jefe_Obrero j1 = new Jefe_Obrero(bono, g, nombre, apellido, "jefe", sueldo, nroLegajo, dni);
 									g.Agregar_Obrero(j1);
 									Obra nueva_obra= new Obra(nombreP, obratipo, dnip, idob, 0, tiempo_ejecucion, costo, j1);
 									e1.Agregar_Obra(nueva_obra);
@@ -296,7 +289,6 @@ if (e1.ListaObras != null && e1.ListaObras.Count > 0)
 								if (jefe != null)
 								{
 									grupo=jefe.Grupo;
-									Console.WriteLine("Chupala kioscu");
 									//elimina al jefe de la empresa
 									grupo.Eliminar_Obrero(jefe);
 
